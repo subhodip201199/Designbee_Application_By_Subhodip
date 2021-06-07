@@ -1,0 +1,3097 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Design Bee Studio</title>
+              <link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+         <!-- jQuery -->
+         <script src="./public/vendor/jquery.min.js"></script>
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css"></script>
+         <script scr="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.map"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js"></script>
+
+
+         <!--For Text Editor-->
+        <script src="./public/ckeditor/ckeditor.js"></script>
+
+
+        <script>
+          function fillFinalBill(){
+
+            
+
+            $("#bill_section_1").empty();
+            $("#invoice_no").empty();
+            $("#invoice_date").empty();
+            $("#delivery_note").empty();
+            $("#mode_of_payment").empty();
+            $("#ref_no_date").empty();
+            $("#other_reference").empty();
+            $("#buyers_order_no").empty();
+            $("#order_date").empty();
+            $("#dispatch_doc_no").empty();
+            $("#delivery_note_date").empty();
+            $("#dispatched_through").empty();
+            $("#destination").empty();
+            $("#terms_of_delivery").empty();
+            $("#client_details").empty();
+            $("#ship_details").empty();
+            $("#total_in_number").empty();
+            $("#total_in_words").empty();
+            $("#hsn_sac_data").empty();
+            $("#total_hsn_sac_in_words").empty();
+
+            
+            const url2 = "/view_project/final_report/billdata/getdata";
+    
+            fetch(url2)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+
+                    var description, hsn_sac, gst, quantity, measurement, rate, disc;
+                                         
+                    for(i=0; i< data.length; i++){
+
+                        description = data[i].description;
+                        hsn_sac = data[i].hsn_sac
+                        //gst = data[i].gst
+                        //rate = data[i].rate
+
+                        
+                        if((data[i].quantity == null)||(data[i].quantity == 0)||(data[i].quantity == "null")){
+                            quantity = '&nbsp'
+                        }else{
+                            quantity = data[i].quantity
+                        }
+
+                        if((data[i].measurement == null)||(data[i].measurement == 0)||(data[i].measurement == "null")){
+                            measurement = '&nbsp'
+                        }else{
+                            measurement = data[i].measurement
+                        }
+
+                        if((data[i].disc >= 0) && (data[i].disc != "0") && (data[i].disc != "null") ){
+                            disc = data[i].disc + '%'
+                        }else{
+                            disc = '&nbsp'
+                        }
+
+                        if((data[i].gst >= 0) && (data[i].gst != "0") && (data[i].gst != "null") ){
+                            gst = data[i].gst + '%'
+                        }else{
+                            gst = '&nbsp'
+                        }
+
+                        if((data[i].rate >= 0) && (data[i].rate != "0") && (data[i].rate != "null") ){
+                            rate = data[i].rate
+                        }else{
+                            rate = '&nbsp'
+                        }
+
+ 
+                         $('#bill_section_1').append('<tr>' +
+                        
+                                            '<td colspan="2">'+ 
+                                                description +
+                                            '</td>' +
+                                            
+                                            '<td>' + 
+                                                hsn_sac + 
+                                            '</td>' +
+                                            '<td>' + 
+                                                gst +
+                                            '</td>' +
+                                            '<td>' +
+                                                quantity +
+                                            '</td>' +
+                                            '<td>' +
+                                                measurement +
+                                            '</td>' +
+                                            '<td>' +
+                                                rate +
+                                            '</td>' +
+                                            
+                                            '<td>' +
+                                                disc +
+                                            '</td>' +
+                                            '<td style="float: right; margin-right: 10px;">' +
+                                                parseFloat(data[i].amount).toFixed(2) +
+                                            '</td>' +
+                                            
+                                        '</tr>');
+                                            
+                    }
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+
+
+
+        const url3 = "/view_project/final_report/description/getdata";
+    
+        fetch(url3)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+
+                $('#invoice_no').append("<b>Invoice No.: </b>" + data[0].invoice_number);
+                $('#invoice_date').append("<b>Dated : </b>" + data[0].invoice_date);
+                $('#delivery_note').append("<b>Delivery Note: </b>" + data[0].delivery_note);
+                $('#mode_of_payment').append("<b>Mode/Terms of Payment: </b><br>" + data[0].mode_of_payment);
+                $('#ref_no_date').append("<b>Reference No. & Date: </b>" + data[0].ref_no_date);
+                $('#other_reference').append("<b>Other Reference: </b><br>" + data[0].ref_no_date);
+                $('#buyers_order_no').append("<b>Buyer's Order No.: </b>" + data[0].buyers_order_no);
+                $('#order_date').append("<b>Dated: </b>" + data[0].order_date);
+                $('#dispatch_doc_no').append("<b>Dispatch Doc No.: </b>" + data[0].dispatch_doc_no);
+                $('#delivery_note_date').append("<b>Delivery Note Date: </b>" + data[0].delivery_note_date);
+                $('#dispatched_through').append("<b>Dispatched through: </b><br>" + data[0].dispatched_through);
+                $('#destination').append("<b>Destination: </b><br>" + data[0].destination);
+                $('#terms_of_delivery').append("<b>Terms of Delivery: </b>" + data[0].terms_of_delivery);
+                $('#client_details').append('<p style="font-weight: bolder;">Client Details: </p>' + data[0].client_details);
+                $('#ship_details').append('<p style="font-weight: bolder;">Ship Details: </p>' + data[0].ship_details);
+
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+
+
+        const url4 = "/view_project/final_report/billdata/total_amount/getdata";
+    
+        fetch(url4)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+
+                //---------------number to words--------------------//
+                var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+                var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+                function inWords (num) {
+                    if ((num = num.toString()).length > 9) return 'overflow';
+                    n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                    if (!n) return; var str = '';
+                    str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+                    str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+                    str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+                    str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+                    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
+                    return str;
+                }
+
+                $('#total_in_number').append('Rs. ' + parseFloat(data[0].total_amount).toFixed(2) +'/-');
+                 var total = parseInt(data[0].total_amount);
+                $('#total_in_words').append('<p style="font-weight: bolder;">Amount Chargable (in words): &nbsp ' + inWords(total) +' Rupees Only</b>');
+
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+
+
+        const url5 = "/view_project/final_report/hsn_sac/getdata";
+    
+        var total_hsn_sac = new Number()
+
+        var hsn_sac = new Number()
+
+        var central_rate = parseInt(9);
+        var central_amount = new Number()
+        var total_central_amount = new Number();
+
+        var state_rate = parseInt(9);
+        var state_amount = new Number()
+        var total_state_amount = new Number();
+
+        var total_tax_amount = new Number()
+        var sum_total_tax_amount = new Number();
+
+        fetch(url5)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+
+                for(i=0; i< data.length; i++){
+                    hsn_sac = data[i].total;
+
+                    central_amount = parseFloat((central_rate*hsn_sac)/100);
+                    central_amount = parseFloat(central_amount).toFixed(2);
+                    total_central_amount += parseFloat(central_amount);
+
+                    state_amount = parseFloat((state_rate*hsn_sac)/100);
+                    state_amount = parseFloat(state_amount).toFixed(2);
+                    total_state_amount += parseFloat(state_amount);
+
+
+                    total_tax_amount = parseFloat(parseFloat(central_amount) + parseFloat(state_amount)).toFixed(2);
+
+                    sum_total_tax_amount += parseFloat(total_tax_amount);
+
+                    $('#hsn_sac_data').append('<tr>' +
+                   
+                                        '<td colspan="2">' + data[i].hsn_sac + '</td>' +
+                                        '<td style="text-align: right;" colspan="2">' + parseFloat(data[i].total).toFixed(2) + '</td>' +
+                                        '<td style="text-align: right;">' + central_rate + '%</td>' +
+                                        '<td style="text-align: right;">' + central_amount + '</td>' +
+                                        '<td style="text-align: right;">' + state_rate + '%</td>' +
+                                        '<td style="text-align: right;">' + state_amount + '</td>' +
+                                        '<td style="float: right; margin-right: 10px;">' + total_tax_amount + '</td>' +
+                                       
+                                   '</tr>');
+                    total_hsn_sac += parseFloat(data[i].total);
+                                     
+               }
+                    total_hsn_sac = parseFloat(total_hsn_sac).toFixed(2);
+                    total_central_amount = parseFloat(total_central_amount).toFixed(2);
+                    total_state_amount = parseFloat(total_state_amount).toFixed(2);
+                    sum_total_tax_amount = parseFloat(sum_total_tax_amount).toFixed(2); 
+               $('#hsn_sac_data').append('<tr>' +
+                   
+                   '<th class="td" style="text-align: right;" colspan="2"> Total </th>' +
+                   '<th class="td" style="text-align: right;" colspan="2">' + total_hsn_sac + '</th>' +
+                   '<th class="td" style="text-align: right;">' + '</th>' +
+                   '<th class="td" style="text-align: right;">' + total_central_amount + '</th>' +
+                   '<th class="td" style="text-align: right;">' + '</th>' +
+                   '<th class="td" style="text-align: right;">' + total_state_amount + '</th>' +
+                   '<th class="td" style="text-align: right;">Rs. ' + sum_total_tax_amount + '/-</th>' +
+                  
+              '</tr>'); 
+              
+              
+              //---------------number to words--------------------//
+              var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+                var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+                function inWords (num) {
+                    if ((num = num.toString()).length > 9) return 'overflow';
+                    n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                    if (!n) return; var str = '';
+                    str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+                    str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+                    str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+                    str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+                    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
+                    return str;
+                }
+              total = parseInt(sum_total_tax_amount);
+              $('#total_hsn_sac_in_words').append('<p style="font-weight: bolder;">Tax Amount (in words): &nbsp ' + inWords(total) +' Rupees Only</b>');
+
+
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+          }
+
+          fillFinalBill();
+        </script>
+
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+            <div class="clearfix"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">View Project</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/project">Project</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript: void()">View Project</a></li>
+                            </ol>
+                        </div> 
+                    </div>
+                    <!-- End Breadcrumb-->
+
+
+                    <div class="page-section border-bottom-2">
+                        <div class="container page__container">
+    
+                            <!--<div class="row">
+                                <div class="col-lg-3">
+                                    <div class="card border-1 border-left-3 border-left-accent text-center mb-lg-0 quick1">
+                                        <div class="card-body" id="project_budget">
+                                            
+                                        </div>
+    
+                                
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                        <div class="card-body" id="project_expense">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                        <div class="card-body" id="project_payment_by_client">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                        <div class="card-body" id="project_earning">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                            <div class="row">
+                                
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                        <div class="card-body" id="project_expense">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                        <div class="card-body" id="project_payment_by_client">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card text-center mb-lg-0 border-1 border-left-3 border-left-accent quick1">
+                                        <div class="card-body" id="project_earning">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+    
+                        </div>
+                    </div>
+
+                    <script>
+                      function project_stats(){
+                        const url1111 = "/project/statistics/getdata";
+            
+                
+            
+                        fetch(url1111)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                                if(data[0].credit !== null){
+                                    var credit = data[0].credit;
+                                }else {
+                                    var credit = 0;
+                                }
+            
+                                if(data[0].debit !== null){
+                                    var debit = data[0].debit;
+                                }else {
+                                    var debit = 0;
+                                }
+                                
+                                if(data[0].earning !== null){
+                                    var earning = data[0].earning;
+                                }else {
+                                    var earning = 0;
+                                }
+                                
+                                
+                                document.getElementById("project_payment_by_client").innerHTML = '<h4 class="h2 mb-0">₹ ' + credit + '</h4>' +
+                                                    '<div><b>Total Credit On This Project</b></div>'
+                            
+                                document.getElementById("project_expense").innerHTML = '<h4 class="h2 mb-0">₹ ' + debit + '</h4>' +
+                                                    '<div><b>Total Debit On This Project</b></div>'
+            
+                                document.getElementById("project_earning").innerHTML = '<h4 class="h2 mb-0">₹ ' + earning + '</h4>' +
+                                                    '<div><b>Earning From This Project</b></div>'
+            
+                            })
+                            .catch(function (err) {
+                                console.log('error: ' + err);
+                            });
+                      }
+
+                      project_stats();
+                                
+                    </script>
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            
+                            <div id="accordion8">
+
+                                <div class="card mb-2 border border-primary">
+                                    
+                                    <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8" style="height: 50px;">
+                                        <h4 style="position: absolute;top: 10px;left: 15px;">Daily Expenses</h4>
+                                    </button>
+                                    
+                                    <div id="collapse-8" class="collapse" data-parent="#accordion8">
+                                        <div class="card-body">
+                                            <button type="button" onclick="remove_project()" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right"><i class="fa fa-trash mr-1"></i> Delete Project</button>
+                                    
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#dailyexpenses"> <i class="fa fa-pencil"></i> &nbsp;Add Daily Expenses </button>
+                                            
+                                            <button type="button" onclick="exportTableToExcel('daily_expenses_table','Daily Expenses')" class="btn btn-outline-success btn-sm waves-effect waves-light m-1 pull-left"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel </button>
+                                            <!--<div id="profile_photo" class="col-lg-2 softnic-f-l">-->
+                                            
+                                            <!--Start Excel Sheet-->
+                                            <script>
+                                                function exportTableToExcel(tableID, filename = ''){
+                                                    var downloadLink;
+                                                    var dataType = 'application/vnd.ms-excel';
+                                                    var tableSelect = document.getElementById(tableID);
+                                                    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+                                                    
+                                                    // Specify file name
+                                                    filename = filename?filename+'.xls':'excel_data.xls';
+                                                    
+                                                    // Create download link element
+                                                    downloadLink = document.createElement("a");
+                                                    
+                                                    document.body.appendChild(downloadLink);
+                                                    
+                                                    if(navigator.msSaveOrOpenBlob){
+                                                        var blob = new Blob(['\ufeff', tableHTML], {
+                                                            type: dataType
+                                                        });
+                                                        navigator.msSaveOrOpenBlob( blob, filename);
+                                                    }else{
+                                                        // Create a link to the file
+                                                        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                                                    
+                                                        // Setting the file name
+                                                        downloadLink.download = filename;
+                                                        
+                                                        //triggering the function
+                                                        downloadLink.click();
+                                                    }
+                                                }
+                                            </script>
+                                            <!--End Excel Sheet-->
+                                            </div>
+                                            <br>
+                                            <!--<div class="col-lg-10 softnic-f-l" id="std_det1">
+                            
+                                            </div>-->
+                                            <div class="clearfix"></div>
+                                            <hr>
+                                            <div class="col-lg-12">
+                                                <div class="table-responsive">
+                                                    <table class="table softnic-profile-table" style="text-align: center;" id="daily_expenses_table">
+                                                        <thead>
+                                                            <tr>
+                                                                <!--<th>Project ID</th>-->
+                                                                <th>Beneficiary Name</th>
+                                                                <th>Amount</th>
+                                                                <th>Cheque No.</th>
+                                                                <th>Transaction Mode</th>
+                                                                <th>Transaction ID</th>
+                                                                <th>Transaction Date</th>
+                                                                <th>Purpose</th>
+                                                                <th>Make Receipt</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="dailyexpenses_data">
+                                                            <!--<tr>
+                                                                <td>Demo Project ID</td>
+                                                                <td>Demo Beneficiary Name</td>
+                                                                <td>Demo Amount</td>
+                                                                <td>Demo Cheque No.</td>
+                                                                <td>Demo Transaction Mode</td>
+                                                                <td>Demo Transaction Date</td>
+                                                                <td>Demo Purpose</td>
+                                                                <td><a href="#" onclick="openModal1()" >Demo Make Receipt</a></td>
+                                                            </tr>-->
+                                                            
+                                                        </tbody>
+                                                    </table>
+
+                                                    <script>
+                                                        //function openModal1(){
+                                                        //    console.log("clicked :)");
+                                                        //    $('#dailyexpensesbill').modal('show');
+                                                        //}
+                                                    </script>
+
+                                                    <script>
+                                                        function openModal1(clicked_id){
+
+                                                        
+                                                            const url17 = "/daily_expenses/view/list/select?id=" + clicked_id;
+                                                            fetch(url17)
+                                                            .then(function (response) {
+                                                                //return response.json();
+                                                            })
+                                                            .then(function () {
+                                                                console.log("clicked :)");
+                                                                $('#dailyexpensesbill').modal('show');
+                                                                fillDataInBill1();
+                                                            })
+                                                            .catch(function (err) {
+                                                                console.log('error: ' + err);
+                                                            });
+                                                        }
+                                                    </script>
+
+                                                    <script>
+                                                        const url16 = "/daily_expenses/view/list";
+                                                        fetch(url16)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                            //$("#dailyexpenses_data tr").remove(); 
+                                                            console.log("daily expenses!")
+                                                            appendData3(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                                    
+                                                    
+
+                                                    
+                                                            function appendData3(data){
+                                                                var id;
+                                                                console.log("appenddata 2")
+                                                                for (var i = 0; i < data.length; i++) {
+                                                                    id = data[i].id;
+                                                                    $('#dailyexpenses_data').append(
+                                                                        '<tr>' + 
+                                                                            //'<td>'+ 
+                                                                            //    data[i].project_id +
+                                                                            //'</td>' +
+                                                                            //'<td>'+ 
+                                                                            //    data[i].client_id +
+                                                                            //'</td>' +
+                                                                            '<td>' + 
+                                                                                data[i].benificiary_name + 
+                                                                            '</td>' +
+                                                                            '<td>' + 
+                                                                                data[i].amount + 
+                                                                            '</td>' +
+                                                                            '<td>' + 
+                                                                                data[i].checque_no +
+                                                                            '</td>' +
+                                                                            '<td>' +
+                                                                                data[i].transaction_mode +
+                                                                            '</td>' +
+                                                                            '<td>' +
+                                                                                data[i].transaction_id +
+                                                                            '</td>' +
+                                                                            '<td>' +
+                                                                                data[i].transaction_date +
+                                                                            '</td>' +
+                                                                            '<td>' +
+                                                                                data[i].purpose +
+                                                                            '</td>' +
+                                                                            '<td>' +
+                                                                                '<a href="#" id="' + id + '" onclick="openModal1(this.id)">Make Receipt</a>' +
+                                                                            '</td>' +
+                                                                            '<td>' + 
+                                                                                '<button id="' + id + '" type="button" onclick="revert_payment1(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#removeStudentPassModal"><i class="fa fa-trash mr-1"></i> REMOVE</button>' + 
+                                                                            '</td>' +
+                                                                        '</tr>'
+                                                                                );
+                                                                }
+                                                                project_stats();
+                                                            }
+                                                        
+                                                    </script>
+
+                                                    <script>
+                                                        function revert_payment1(clicked_id){
+                                                            
+                                                            const url05544 = "/daily_expenses/revert?id=" + clicked_id;
+                                                            fetch(url05544)
+                                                            .then(function () {
+                                                                //return response.json();
+                                                            })
+                                                            .then(function () {
+
+                                                                const url1600 = "/daily_expenses/view/list";
+                                                                fetch(url1600)
+                                                                .then(function (response) {
+                                                                    return response.json();
+                                                                })
+                                                                .then(function (data) {
+                                                                    //$("#dailyexpenses_data tr").remove(); 
+                                                                    console.log("daily expenses!")
+                                                                    $("#dailyexpenses_data tr").remove(); 
+                                                                    appendData3(data);
+                                                                })
+                                                                .catch(function (err) {
+                                                                    console.log('error: ' + err);
+                                                                });
+
+                                                            })
+                                                            .catch(function (err) {
+                                                                console.log('error: ' + err);
+                                                            });
+
+                                                        }
+                                                        
+                                                    </script>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+
+                                <div class="card mb-2 border border-primary">
+                                    <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7" style="height: 50px;">
+                                        <h4 style="position: absolute;top: 10px;left: 15px;">Work Report</h4>
+                                    </button>
+                                    <div id="collapse-7" class="collapse" data-parent="#accordion8">
+                                        <div class="card-body">
+                                            <!--div class="clearfix"></div>-->
+                                            <!--<div class="col-md-12 p-0">
+                                                <form id="employee_form">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Project ID</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               placeholder="Project ID"
+                                                               name="project_id"
+                                                               />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label">Client Name</label>
+                                                        <input type="text"
+                                                               class="form-control"
+                                                               placeholder="Client Name"
+                                                               name="client_name"
+                                                               />
+
+                                                    </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-md-12 p-0">
+                                                <button class="btn btn-primary" onclick="submit()"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                                            </div>-->
+
+                                            <button type="button" onclick="" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right"><i class="fa fa-trash mr-1"></i> Delete Work Report</button>
+
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#workReport"> <i class="fa fa-pencil"></i> &nbsp;Add Work Report </button>
+
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <hr>
+
+                                        <table class="table softnic-profile-table" style="text-align: center;" id="work_report_table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Work Done</th>
+                                                    <th>Pending Work</th>
+                                                    <th>Next Day Plan</th>
+                                                    <th>Days Required</th>
+                                                    <th>Days Left</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!--<tr>
+                                                    <td>Demo Project ID</td>
+                                                    <td>Demo Client Name</td>
+                                                    <td>Demo Amount</td>
+                                                    <td>Demo Cheque No.</td>
+                                                    <td>Demo Transaction Mode</td>
+                                                    <td>Demo Transaction Date</td>
+                                                    <td>Demo Purpose</td>-->
+                                                </tr>
+                                            </tbody>
+                                        </table>    
+                                    </div>
+                                </div>
+
+                                <div class="card mb-2 border border-primary">
+                                    <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6" style="height: 50px;">
+                                        <h4 style="position: absolute;top: 10px;left: 15px;">Pay By Client</h4>
+                                    </button>
+                                    <div id="collapse-6" class="collapse" data-parent="#accordion8">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#addreceipt"> <i class="fa fa-pencil"></i> &nbsp;Create Receipt For Client </button>                                                    
+                                        </div>
+                                        <br>
+                                        <div class="clearfix"></div>
+                                        <hr>   
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive">
+                                                <table class="table softnic-profile-table" style="text-align: center;" id="daily_expenses_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <!--<th>Project ID</th>
+                                                            <th>Client Name</th>-->
+                                                            <th>Amount</th>
+                                                            <th>Cheque No.</th>
+                                                            <th>Transaction Mode</th>
+                                                            <th>Transaction ID</th>
+                                                            <th>Transaction Date</th>
+                                                            <th>Purpose</th>
+                                                            <th>Make Receipt</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="pay_by_client">
+                                                        <!--<tr>
+                                                            <td>Demo Project ID</td>
+                                                            <td>Demo Client Name</td>
+                                                            <td>Demo Amount</td>
+                                                            <td>Demo Cheque No.</td>
+                                                            <td>Demo Transaction Mode</td>
+                                                            <td>Demo Transaction Date</td>
+                                                            <td>Demo Purpose</td>
+                                                            <td><a href="#" onclick="openModal2()">Demo Make Receipt</a></td>
+                                                        </tr>-->
+                                                    </tbody>
+                                                </table>
+
+                                                <script>
+                                                    function openModal2(clicked_id){
+                                                        
+
+                                                        const url7 = "/pay_by_client/view/list/select?id=" + clicked_id;
+                                                        fetch(url7)
+                                                        .then(function (response) {
+                                                            //return response.json();
+                                                        })
+                                                        .then(function () {
+                                                            console.log("clicked :)");
+                                                            $('#clientbill').modal('show');
+                                                            fillDataInBill2();
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                                    }
+                                                </script>
+
+                                                <script>
+                                                    const url6 = "/pay_by_client/view/list";
+                                                    fetch(url6)
+                                                    .then(function (response) {
+                                                        return response.json();
+                                                    })
+                                                    .then(function (data) {
+                                                        $("#pay_by_client tr").remove(); 
+                                                        appendData(data);
+                                                    })
+                                                    .catch(function (err) {
+                                                        console.log('error: ' + err);
+                                                    });
+
+
+                                                    
+
+                                                        function appendData(data){
+                                                            var id;
+
+                                                            for (var i = 0; i < data.length; i++) {
+                                                                id = data[i].id;
+                                                                $('#pay_by_client').append(
+                                                                    '<tr>' + 
+                                                                        //'<td>'+ 
+                                                                        //    data[i].project_id +
+                                                                        //'</td>' +
+                                                                        //'<td>'+ 
+                                                                        //    data[i].client_id +
+                                                                        //'</td>' +
+                                                                        '<td>' + 
+                                                                            data[i].amount + 
+                                                                        '</td>' +
+                                                                        '<td>' + 
+                                                                            data[i].checque_no +
+                                                                        '</td>' +
+                                                                        '<td>' +
+                                                                            data[i].transaction_mode +
+                                                                        '</td>' +
+                                                                        '<td>' +
+                                                                            data[i].transaction_id +
+                                                                        '</td>' +
+                                                                        '<td>' +
+                                                                            data[i].transaction_date +
+                                                                        '</td>' +
+                                                                        '<td>' +
+                                                                            data[i].purpose +
+                                                                        '</td>' +
+                                                                        '<td>' +
+                                                                            '<a href="#" id="' + id + '" onclick="openModal2(this.id)">Make Receipt</a>' +
+                                                                        '</td>' +
+                                                                        '<td>' + 
+                                                                                '<button id="' + id + '" type="button" onclick="revert_payment2(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#removeStudentPassModal"><i class="fa fa-trash mr-1"></i> REMOVE</button>' + 
+                                                                        '</td>' +
+                                                                    '</tr>'
+                                                                            );
+                                                            }
+                                                            project_stats();
+                                                        }
+                                                    
+                                                </script>
+                                                <script>
+                                                    function revert_payment2(clicked_id){
+                                                        
+                                                        const url05544 = "/pay_by_client/revert?id=" + clicked_id;
+                                                        fetch(url05544)
+                                                        .then(function () {
+                                                            //return response.json();
+                                                        })
+                                                        .then(function () {
+
+                                                            const url6060 = "/pay_by_client/view/list";
+                                                            fetch(url6060)
+                                                            .then(function (response) {
+                                                                return response.json();
+                                                            })
+                                                            .then(function (data) {
+                                                                $("#pay_by_client tr").remove(); 
+                                                                appendData(data);
+                                                            })
+                                                            .catch(function (err) {
+                                                                console.log('error: ' + err);
+                                                            });
+
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+
+                                                    }
+                                                    
+                                                </script>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-2 border border-primary">
+                                    <button class="btn shadow-none" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5" style="height: 50px;">
+                                        <h4 style="position: absolute;top: 10px;left: 15px;">Final Report</h4>
+                                    </button>
+                                    <div id="collapse-5" class="collapse" data-parent="#accordion8">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#generatefinalbill"> <i class="fa fa-pencil"></i> &nbsp;Add Basic requirements for Final Bill </button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" data-toggle="modal" data-target="#generatefinalbill2"> <i class="fa fa-pencil"></i> &nbsp;Add Final Bill Data</button>
+                                            <button type="button" class="btn btn-outline-dark btn-sm waves-effect waves-light m-1 pull-right" onclick=reset_bill()> <i class="fa fa-trash"></i> &nbsp;Reset Bill Data</button>
+                                            <button type="button" class="btn btn-primary btn-sm waves-effect waves-light m-1 pull-left" onclick=final_bill()> <i class="fa fa-download"></i> &nbsp;&nbsp;Generate Final Bill</button>
+                                            <br>
+                                            <div class="clearfix"></div>
+                                            <hr>
+                                            <div class="card-body" id="final">  
+                                                <div class="row">
+                                                    <!--<table  border="1" width="100%">
+                                                        <tr>
+                                                            <td rowspan="3" colspan="2" width="50%">Description</td>
+                                                            <td width="25%">Invoice No.</td>
+                                                            <td width="25%">Dated</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="25%">Delivery Note</td>
+                                                            <td width="25%">Mode/Terms of Payment</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="25%">Reference No. & Date</td>
+                                                            <td width="25%">Other Reference</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="3" colspan="2" width="50%">Description</td>
+                                                            <td width="25%">Buyer's Order No.</td>
+                                                            <td width="25%">Dated</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="25%">Dispatch Doc No.</td>
+                                                            <td width="25%">Delivery Note Date</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="25%">Dispatched through</td>
+                                                            <td width="25%">Destination</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="3" colspan="2" width="50%">Description</td>
+                                                            <td colspan="2" rowspan="3" width="50%">Terms of Delivery</td>
+                                                        </tr>
+                                                        
+                                                    </table>-->
+                                                </div>
+
+                                                <div class="row">
+                                                    <br>
+                                                    <style>
+                                                        .td{
+                                                            border: 1px solid #000;
+                                                        }
+                                                        .td1{
+                                                            border-left: 1px solid #000;
+                                                            border-right: 1px solid #000;
+                                                        }
+                                                    </style>
+                                                    <table style="width: 280mm;">
+                                                        <tr>
+                                                            <td rowspan="3" colspan="4" class="td">
+                                                                <p style="font-weight: bolder;">DESIGN BEE STUDIO</p>
+                                                                <p>
+                                                                    PS QUBE, SUITE NO:501, 5TH FLOOR,
+                                                                    RAJARHAT, STREET NO:1111, KOLKATA-700161
+                                                                </p>
+                                                                <p>GSTIN/UIN           : 19AAQFD6693Q1Z6</p>
+                                                                <p>STATE NAME          : WEST BENGAL, CODE : 19</p>
+                                                                <p>PLACE OF SUPPLY     : WEST BENGAL</p>
+                                                            </td>
+                                                            <td colspan="3" id="invoice_no" class="td"></td>
+                                                            <td colspan="2" id="invoice_date" class="td"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" id="delivery_note" class="td"></td>
+                                                            <td colspan="2" id="mode_of_payment" class="td"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" id="ref_no_date" class="td"></td>
+                                                            <td colspan="2" id="other_reference" class="td"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="3" colspan="4" id="client_details" class="td"></td>
+                                                            <td colspan="3" id="buyers_order_no" class="td"></td>
+                                                            <td colspan="2" id="order_date" class="td"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" id="dispatch_doc_no" class="td"></td>
+                                                            <td colspan="2" id="delivery_note_date" class="td"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3" id="dispatched_through" class="td"></td>
+                                                            <td colspan="2" id="destination" class="td"></td>
+                                                        </tr>
+                                                        <tr style="height: 70px;">
+                                                            <td colspan="4" id="ship_details" class="td"></td>
+                                                            <td colspan="5" id="terms_of_delivery" class="td"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th colspan="2" class="td">Description of Goods and Services</th>
+                                                            <th class="td">HSN/SAC</th>
+                                                            <th class="td">GST Rate</th>
+                                                            <th class="td">Quantity</th>
+                                                            <th class="td">Measurement</th>
+                                                            <th class="td">Rate</th>
+                                                            <th class="td">Disc. %</th>
+                                                            <th class="td">Amount</th>
+                                                        </tr>
+                                                        <tbody id="bill_section_1" class="td1">
+                                                            
+                                                        </tbody>
+                                                        <tr>
+                                                            <th class="td" style="text-align: right;" colspan="2">Total</th>
+                                                            <th class="td" style="text-align: right;" colspan="2"></th>
+                                                            <th class="td" style="text-align: right;"></th>
+                                                            <th class="td" style="text-align: right;"></th>
+                                                            <th class="td" style="text-align: right;"></th>
+                                                            <th class="td" style="text-align: right;"></th>
+                                                            <th class="td" style="text-align: right;" id="total_in_number"></th>
+                                                        </tr>
+                                                    
+                                                        <tr>
+                                                            <td colspan="9" width="100%" id="total_in_words" class="td1">
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="td" rowspan="2" colspan="2" style="text-align: center;" width="40%">HSN/SAC</th>
+                                                            <th class="td" rowspan="2" colspan="2" style="text-align: center;" width="10%">Taxable Value</th>
+                                                            <th class="td" colspan="2" style="text-align: center;" width="20%">Central Tax</th>
+                                                            <th class="td" colspan="2" style="text-align: center;" width="20%">State Tax</th>
+                                                            <th class="td" rowspan="2" style="text-align: center;" width="10%">Total Tax Amount</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th style="text-align: center;" class="td">Rate</th>
+                                                            <th style="text-align: center;" class="td">Amount</th>
+                                                            <th style="text-align: center;" class="td">Rate</th>
+                                                            <th style="text-align: center;" class="td">Amount</th>
+                                                        </tr>
+                                                        <tbody id="hsn_sac_data" class="td1">
+
+                                                        </tbody>
+                                                    
+                                    
+                                            
+                                                        <tr>
+                                                            <td class="td1" colspan="9" width="100%" id="total_hsn_sac_in_words"></td>
+                                                        </tr>
+                                                        <tr style="height: 100px;">
+                                                            <td class="td">
+                                                                <p><u>Declaration</u></p>
+                                                                <p>
+                                                                    We declare that this invoice shows the actual price of the goods
+                                                                    described and that all particulars are true and correct.We are
+                                                                    not reponsible for any Breakage/Damage/Shortage/Leakage intransit.
+                                                                    Our reposibility ceases when the goods are delivered to the carrier.
+                                                                    Goods once sold will not be accepted back.Interest @12%p.a will be
+                                                                    charged, if invoices is not paid on or before due date.Please pay by
+                                                                    A/C Payee Chq. Only.
+                                                                </p>
+                                                            </td>
+                                                            <td class="td" colspan="8" width="50%">
+                                                                <p>Company's Bank Details</p>
+                                                                <p>Bank Name        :</p>
+                                                                <p>A/c No.          :</p>
+                                                                <p>Branch & IFS Code:</p>
+                                                                <p style="text-align: right;">Authorised Signatory&nbsp;&nbsp;</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End container-fluid-->
+        <div class="overlay"></div>
+        </div>
+        <!--End content-wrapper-->
+        </div>
+        <!--End of Header Layout Content-->
+        
+        <!-- modal data start -->
+
+        <div class="modal fade" id="dailyexpenses" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Daily Expenses <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form  id="daily_expenses_form">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Project ID<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="project_id" class="form-control" placeholder="Project ID" value="demo_project_id" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Beneficiary Name<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="benificiary_name" class="form-control" placeholder="Beneficiary Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Amount<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="number" name="amount" class="form-control" placeholder="Amount" step="any" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Transaction Mode<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <select class="form-control single-select" name="transaction_mode" required>
+                                        <option value="">Select Transaction Mode</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="cheque">Cheque</option>
+                                        <option value="online_transaction">Online Transaction</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Cheque Number</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="cheque_number" class="form-control" placeholder="Cheque Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Transaction ID</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="transaction_id" class="form-control" placeholder="Transaction ID">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Purpose</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea rows="6" name="purpose" class="form-control" placeholder="Purpose"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <input type="hidden" name="sid" value="370">
+                    
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button onclick="daily_expenses()" data-dismiss="modal" name="add_daily_expenses" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Add</button>
+                    </div>
+
+                    <script>
+                        function  daily_expenses() {
+                            console.log("daily_expenses_form")
+                            var formEl = document.forms.daily_expenses_form;
+                            var formData = new FormData(formEl);
+
+                            var benificiary_name = formData.get('benificiary_name');
+                            var amount = formData.get('amount');
+                            var transaction_mode = formData.get('transaction_mode');
+                            var cheque_number = formData.get('cheque_number');
+                            var transaction_id = formData.get('transaction_id');
+                            var purpose = formData.get('purpose');
+
+                            console.log(formData);
+
+                            if (!benificiary_name || !amount || !transaction_mode || !purpose) {
+                                      alert("Please fill all the mandatory inputs");
+                            }else{
+
+                                const url12345 = "/daily_expenses/add?benificiary_name=" + benificiary_name + "&amount=" + amount + "&transaction_mode=" + transaction_mode + "&cheque_number=" + cheque_number + "&transaction_id=" + transaction_id + "&purpose=" + purpose;
+                                fetch(url12345)
+                                    .then(function () {  
+                                        //return response.json();
+                                    })
+                                    .then(function () {
+
+                                        $("#dailyexpenses_data tr").remove(); 
+                                         //appendData3(data);
+                                         const url166 = "/daily_expenses/view/list";
+                                                            fetch(url166)
+                                                            .then(function (response) {
+                                                                return response.json();
+                                                            })
+                                                            .then(function (data) {
+                                                                //$("#dailyexpenses_data tr").remove(); 
+                                                                //console.log("daily expenses!")
+                                                                appendData3(data);
+                                                            })
+                                                            .catch(function (err) {
+                                                                console.log('error: ' + err);
+                                                            });
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });  
+                            }
+                        
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addreceipt" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate a receipt For a Client <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form id="pay_by_client_form">
+                    <div class="modal-body">
+                        <!--<div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Project ID<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="project_id" class="form-control" placeholder="Project ID" value="demo_project_id" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Client Name<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="client_name" class="form-control" placeholder="Client Name" required>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Amount<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="number" name="amount" class="form-control" placeholder="Amount" step="any" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Transaction Mode<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <select class="form-control single-select" name="transaction_mode" required>
+                                        <option value="">Select Transaction Mode</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="cheque">Cheque</option>
+                                        <option value="online_transaction">Online Transaction</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Cheque Number</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="cheque_number" class="form-control" placeholder="Cheque Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Transaction ID</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="transaction_id" class="form-control" placeholder="Transaction ID">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Purpose</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea rows="6" name="purpose" class="form-control" placeholder="Purpose"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <input type="hidden" name="sid" value="370">
+                    
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button onclick="pay_by_client()" data-dismiss="modal" name="add_daily_expenses" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Add</button>
+                    </div>
+                    <script>
+                        function  pay_by_client() {
+                            console.log("pay_by_client_form")
+                            var formEl = document.forms.pay_by_client_form;
+                            var formData = new FormData(formEl);
+
+                            //var benificiary_name = formData.get('benificiary_name');
+                            var amount = formData.get('amount');
+                            var transaction_mode = formData.get('transaction_mode');
+                            var cheque_number = formData.get('cheque_number');
+                            var transaction_id = formData.get('transaction_id');
+                            var purpose = formData.get('purpose');
+
+                            //console.log(formData);
+
+                            if (!amount || !transaction_mode || !purpose) {
+                              alert("Please fill all the mandatory inputs");
+                            }else{
+
+                                const url0012 = "/pay_by_client/add?amount=" + amount + "&transaction_mode=" + transaction_mode + "&cheque_number=" + cheque_number + "&transaction_id=" + transaction_id + "&purpose=" + purpose;
+                                fetch(url0012)
+                                    .then(function () {  
+                                        //return response.json();
+                                    })
+                                    .then(function () {
+                                    
+                                        //$("#dailyexpenses_data tr").remove(); 
+                                         //appendData3(data);
+                                         const url0034 = "/pay_by_client/view/list";
+                                                            fetch(url0034)
+                                                            .then(function (response) {
+                                                                return response.json();
+                                                            })
+                                                            .then(function (data) {
+                                                                $("#pay_by_client tr").remove();  
+                                                                //console.log("daily expenses!")
+                                                                appendData(data);
+                                                            })
+                                                            .catch(function (err) {
+                                                                console.log('error: ' + err);
+                                                            });
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });  
+                            }
+                        
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!--Daily Expenses Bill-->
+        <div class="modal fade" id="dailyexpensesbill" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Your Daily Expenses Bill <!--<font style="color: red;">(<b>*</b> You need to fill up all the field)</font>--></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="content" style="background-color: white;">
+                        <div class="card-body">
+                            <!--Bill Header Start-->
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span><img src="logo.png"
+                                        alt="logo"
+                                        style="height: 200px; width: 200px;">
+                                    </span>
+                                </div>
+                                <div class="col-sm-4" style="text-align: center;">
+                                    <h4>Design Bee Studio</h4>
+                                    <p>PS QUBE, SUITE NO: 501, 5TH FLOOR, RAJARHAT.</p>
+                                    <p>KOLKATA:700135</p>
+                                    <br>
+                                    <p style="font-size: smaller;">PHONE NO: +91 9903226666/7980946344</p>
+                                </div>
+                                <div class="col-sm-4" id="data_billNo0">
+                                    <!--<p style="position: absolute; top: 50px;left: 70px;">DATED:</p>
+                                    <p style="position: absolute; top: 90px;left: 70px;">BILL NO:</p>-->
+                                </div>
+                            </div>
+
+                            <table class="table softnic-profile-table">
+                                <tbody>
+                                    <tr>
+                                        <th><p style="font-size: small;">Paid to Mr/Mrs/miss</p></th>
+                                        <th colspan="8" id="client_name_in_bill_1"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>THE SUM OF RUPEES</th>
+                                        <th colspan="8" id="bill_amount0"></th>
+                                    </tr>
+                                    <tr>
+                                        <!--<th>Against</th>
+                                        <th></th>
+                                        <th>BY CASH/CHEQUE/Ac pay</th>
+                                        <th></th>
+                                        <th>DATED</th>
+                                        <th></th>
+                                        <th>BANK</th>
+                                        <th></th>-->
+
+                                        <th>Against</th>
+                                        <th></th>
+                                        <th>BY CASH/CHEQUE/Ac pay</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>DATED</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr id="daily_expenses_bill_table">
+
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 7px;" colspan="4">
+                                            <div style="background-color: 
+                                            black;width: 30px; height: 30px; border-radius: 50%;"><p style="color: aliceblue; position: relative; left: 5px;top: 5px;">RS.</p></div>
+                                        </th>
+                                        <th colspan="4" id="bill_amount1">
+
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 7px;" colspan="4">
+                                            
+                                        </th>
+                                        <th colspan="4">
+                                            FOR - DESIGN BEE STUDIO
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 7px;" colspan="4">
+                                            <p>IN CASE OF CHEQUE THE RECEIPT</p>
+                                            <p>IS VALID SUBJECT TO REALISATION</p>
+                                            <p><b>FOR</b> - DESIGN BEE STUDIO</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--Bill Header End-->
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="submit" class="btn btn-primary" id="cmd" onclick=printForm1()><i class="fa fa-download"></i>&nbsp;&nbsp;Generate</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Daily Expenses Bill End-->
+
+        <!--Client Bill-->
+        <div class="modal fade" id="clientbill" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Your Client Bill <!--<font style="color: red;">(<b>*</b> You need to fill up all the field)</font>--></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="content1" style="background-color: white;">
+                        <div class="card-body">
+                            <!--Bill Header Start-->
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span><img src="logo.png"
+                                        alt="logo"
+                                        style="height: 200px; width: 200px;">
+                                    </span>
+                                </div>
+                                <div class="col-sm-4" style="text-align: center;">
+                                    <h4>Design Bee Studio</h4>
+                                    <p>PS QUBE, SUITE NO: 501, 5TH FLOOR, RAJARHAT.</p>
+                                    <p>KOLKATA:700135</p>
+                                    <br>
+                                    <p style="font-size: smaller;">PHONE NO: +91 9903226666/7980946344</p>
+                                </div>
+                                <div class="col-sm-4" id="data_billNo">
+                                    <!--<p style="position: absolute; top: 50px;left: 70px;">DATED:</p>
+                                    <p style="position: absolute; top: 90px;left: 70px;">BILL NO:</p>-->
+                                </div>
+                            </div>
+
+                            <table class="table softnic-profile-table">
+                                <tbody>
+                                    <tr>
+                                        <th><p style="font-size: small;">Received with thanks from Mr/Mrs/miss</p></th>
+                                        <th colspan="8" id="client_name_in_bill"></th>
+                                    </tr>
+                                    <tr>
+                                        <th>THE SUM OF RUPEES</th>
+                                        <th colspan="8" id="bill_amount"></th>
+                                    </tr>
+                                    <tr>
+                                        <!--<th>Against</th>
+                                        <th></th>
+                                        <th>BY CASH/CHEQUE/Ac pay</th>
+                                        <th></th>
+                                        <th>DATED</th>
+                                        <th></th>
+                                        <th>BANK</th>
+                                        <th></th>-->
+
+                                        <th>Against</th>
+                                        <th></th>
+                                        <th>BY CASH/CHEQUE/Ac pay</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>DATED</th>
+                                        <th></th>
+                                    </tr>
+                                    
+                                    <tr id="pay_by_client_bill_table">
+                                        <!--<td>Against</td>
+                                        <td></td>
+                                        <td>BY CASH/CHEQUE/Ac pay</td>
+                                        <td></td>
+                                        <td>DATED</td>
+                                        <td></td>
+                                        <td>BANK</td>
+                                        <td></td>-->
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                        <th style="border: 7px;" colspan="4">
+                                            <div style="background-color: 
+                                            black;width: 30px; height: 30px; border-radius: 50%;"><p style="color: aliceblue; position: relative; left: 5px;top: 5px;">RS.</p></div>
+                                        </th>
+                                        <th colspan="4" id="bill_amount2">
+
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 7px;" colspan="4">
+                                            
+                                        </th>
+                                        <th colspan="4">
+                                            FOR - DESIGN BEE STUDIO
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 7px;" colspan="4">
+                                            <p>IN CASE OF CHEQUE THE RECEIPT</p>
+                                            <p>IS VALID SUBJECT TO REALISATION</p>
+                                            <p><b>FOR</b> - DESIGN BEE STUDIO</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <script>
+                                function fillDataInBill1(){
+
+                                  const url18 = "/daily_expenses/view/getdata";
+                                  fetch(url18)
+                                  .then(function (response) {
+                                      return response.json();
+                                  })
+                                  .then(function (data) {
+                                      $("#bill_amount0").empty(); 
+                                      $("#daily_expenses_bill_table").empty();
+                                      appendData4(data);
+                                  })
+                                  .catch(function (err) {
+                                      console.log('error: ' + err);
+                                  });    
+                                }
+
+                                function appendData4(data){
+
+                                  getName1();
+                                  //getDateBillNo1();
+
+                                  var id;
+
+                                  $('#bill_amount0').append("Rs. " + data[0].amount + "/-");
+                                  
+
+                                  for (var i = 0; i < data.length; i++) {
+                                      id = data[i].id;
+                                      $('#daily_expenses_bill_table').append(
+
+                                              '<td>'+ 
+                                                  data[i].purpose +
+                                              '</td>' +
+                                              '<td>'+ 
+
+                                              '</td>' +
+                                              '<td>' + 
+                                                  data[i].transaction_mode + 
+                                              '</td>' +
+                                              '<td>' + 
+
+                                              '</td>' +
+                                              '<td>' +
+
+                                              '</td>' +
+                                              '<td>' +
+                                                
+                                              '</td>' +
+                                              '<td>' +
+                                                  data[i].transaction_date +
+                                              '</td>' +
+                                              '<td>' +
+
+                                              '</td>' 
+                                                
+                                                
+                                                  );
+                                    }
+
+                                    //---------------number to words--------------------//
+                                    var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+                                    var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+                                    function inWords (num) {
+                                        if ((num = num.toString()).length > 9) return 'overflow';
+                                        n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                                        if (!n) return; var str = '';
+                                        str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+                                        str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+                                        str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+                                        str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+                                        str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
+                                        return str;
+                                    }
+                                
+                                    $('#bill_amount1').empty();
+                                    $('#bill_amount1').append(inWords(data[0].amount) + ' Rupees ooooOnly</b>');
+                                }
+
+                                function getName1(){
+                                    const url19 = "/daily_expenses/view/getdata";
+                                    fetch(url19)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        $("#client_name_in_bill_1").empty(); 
+                                       
+                                        $("#client_name_in_bill_1").append(data[0].benificiary_name); 
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    }); 
+                                }
+
+                                //function getDateBillNo1(){
+                                //    var today = new Date();
+                                //    var dd = String(today.getDate()).padStart(2, '0');
+                                //    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                                //    var yyyy = today.getFullYear();
+//
+                                //    today = dd + '.' + mm + '.' + yyyy;
+                                //    
+//
+                                //    const url110 = "/daily_expenses/bill_no";
+                                //    fetch(url110)
+                                //    .then(function (response) {
+                                //        return response.json();
+                                //    })
+                                //    .then(function (data) {
+                                //        $("#data_billNo0").empty(); 
+                                //       
+                                //        $("#data_billNo0").append(
+                                //        '<p style="position: absolute; top: 50px;left: 70px;">DATED: ' + today + '</p>' +
+                                //        '<p style="position: absolute; top: 90px;left: 70px;">BILLNO: ' + data[0].id + '</p>'
+                                //    );
+                                //        
+                                //    })
+                                //    .catch(function (err) {
+                                //        console.log('error: ' + err);
+                                //    }); 
+                                //}
+                                
+                                
+                            </script>
+
+
+                            <script>
+                                function fillDataInBill2(){
+
+                                  const url8 = "/pay_by_client/view/getdata";
+                                  fetch(url8)
+                                  .then(function (response) {
+                                      return response.json();
+                                  })
+                                  .then(function (data) {
+                                      $("#bill_amount").empty(); 
+                                      $("#pay_by_client_bill_table").empty();
+                                      appendData2(data);
+                                  })
+                                  .catch(function (err) {
+                                      console.log('error: ' + err);
+                                  });    
+                                }
+
+                                function appendData2(data){
+
+                                  getName();
+                                  //getDateBillNo();
+
+                                  var id;
+
+                                  $('#bill_amount').append("Rs. " + data[0].amount + "/-");
+                                  
+
+                                  for (var i = 0; i < data.length; i++) {
+                                      id = data[i].id;
+                                      $('#pay_by_client_bill_table').append(
+
+                                              '<td>'+ 
+                                                  data[i].purpose +
+                                              '</td>' +
+                                              '<td>'+ 
+
+                                              '</td>' +
+                                              '<td>' + 
+                                                  data[i].transaction_mode + 
+                                              '</td>' +
+                                              '<td>' + 
+
+                                              '</td>' +
+                                              '<td>' +
+
+                                              '</td>' +
+                                              '<td>' +
+                                                
+                                              '</td>' +
+                                              '<td>' +
+                                                  data[i].transaction_date +
+                                              '</td>' +
+                                              '<td>' +
+
+                                              '</td>' 
+                                                
+                                                
+                                                  );
+                                    }
+
+                                    //---------------number to words--------------------//
+                                    var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','Eighteen ','Nineteen '];
+                                    var b = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
+
+                                    function inWords (num) {
+                                        if ((num = num.toString()).length > 9) return 'overflow';
+                                        n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                                        if (!n) return; var str = '';
+                                        str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'Crore ' : '';
+                                        str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'Lakh ' : '';
+                                        str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'Thousand ' : '';
+                                        str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'Hundred ' : '';
+                                        str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + '' : '';
+                                        return str;
+                                    }
+                                
+                                    $('#bill_amount2').empty();
+                                    $('#bill_amount2').append(inWords(data[0].amount) + ' Rupees Only</b>');
+                                }
+
+                                function getName(){
+                                    const url9 = "/quatation/client_data/getdata";
+                                    fetch(url9)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        $("#client_name_in_bill").empty(); 
+                                       
+                                        $("#client_name_in_bill").append(data[0].client_name); 
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    }); 
+                                }
+
+                                //function getDateBillNo(){
+                                //    var today = new Date();
+                                //    var dd = String(today.getDate()).padStart(2, '0');
+                                //    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                                //    var yyyy = today.getFullYear();
+//
+                                //    today = dd + '.' + mm + '.' + yyyy;
+                                //    
+//
+                                //    const url10 = "/pay_by_client/bill_no";
+                                //    fetch(url10)
+                                //    .then(function (response) {
+                                //        return response.json();
+                                //    })
+                                //    .then(function (data) {
+                                //        $("#data_billNo").empty(); 
+                                //       
+                                //        $("#data_billNo").append(
+                                //        '<p style="position: absolute; top: 50px;left: 70px;">DATED: ' + today + '</p>' +
+                                //        '<p style="position: absolute; top: 90px;left: 70px;">BILLNO: ' + data[0].id + '</p>'
+                                //    );
+                                //        
+                                //    })
+                                //    .catch(function (err) {
+                                //        console.log('error: ' + err);
+                                //    }); 
+                                //}
+                                
+                                
+                            </script>
+                            <!--Bill Header End-->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="submit" class="btn btn-primary" id="cmd1" onclick=printForm()><i class="fa fa-download"></i>&nbsp;&nbsp;Generate</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--End Client Bill-->
+
+        <!--Generate Final Bill-->
+        <div class="modal fade" id="generatefinalbill" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Final Bill <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/view_project/final_report/add_basic_requirements" method="post"  id="#">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Add Your Client Name, Address, State, Email<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <!--<textarea rows="6" name="client_details" class="form-control" placeholder="Client Details" maxlength="1500" required></textarea>-->
+                                    <textarea name="client_details" id="editor1" rows="3" cols="10" placeholder="Client Details" maxlength="1500" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Ship Details<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <!--<textarea rows="6" name="ship_details" class="form-control" placeholder="Ship Details" maxlength="1500" required></textarea>-->
+                                    <textarea name="ship_details" id="editor2" rows="3" cols="10" placeholder="Ship Details" maxlength="1500" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Invoice Number<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="invoice_number" class="form-control" placeholder="Invoice Number" maxlength="200" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Date<font style="color: red;">*</font></label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="date" name="invoice_date" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Delivery Note</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="delivery_note" class="form-control" maxlength="1500" placeholder="Delivery Note">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Mode/Terms of Payment</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="mode_of_payment" class="form-control" maxlength="200" placeholder="Mode/Terms of Payment">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Reference No. & Date</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea rows="6" name="ref_no_date" class="form-control" maxlength="250" placeholder="Reference No. & Date"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Other References</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea rows="6" name="other_ref" class="form-control" maxlength="1500" placeholder="Other Reference No."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Buyer's Order No.</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="buyer_order_no" class="form-control" maxlength="200" placeholder="Buyer's Order No.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Dated</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="date" name="order_date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Dispatch Doc No.</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="dispatch_doc_no" class="form-control" maxlength="200" placeholder="Dispatch Doc No.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Delivery Note Date</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="date" name="delivery_note_date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Dispatched through</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" name="dispatch_through" class="form-control" maxlength="200" placeholder="Dispatched through">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Destination</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea rows="6" id="editor3" name="destination" class="form-control" maxlength="1500" placeholder="Destination"></textarea>
+                                    <!--<input type="text" name="destination" class="form-control" maxlength="1500" placeholder="Destination">-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="input-21" class="col-sm-3 col-form-label">Terms of Delivery</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <textarea rows="6" name="terms_of_delivery" class="form-control" maxlength="1500" placeholder="Terms of Delivery"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="sid" value="370">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="submit" name="add_basic_requirements" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Add</button>
+                    </div>
+                    </form>
+                    <script>
+                        // Replace the <textarea> with a CKEditor
+                        CKEDITOR.replace('editor1');
+                    </script>
+                    <script>
+                        // Replace the <textarea> with a CKEditor
+                        CKEDITOR.replace('editor2');
+                    </script>
+                    <script>
+                        // Replace the <textarea> with a CKEditor
+                        CKEDITOR.replace('editor3');
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!--Generate Final Bill End-->
+
+
+        <!--Generate Final Bill2 Start-->
+        <div class="modal fade" id="generatefinalbill2" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Final Bill <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form  id="billData_form">
+                    <div class="modal-body">
+                        <!--<button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right softnic-profile-edit-btn"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add More...</button>-->
+                        <div class="table-responsive">
+                            <table class="table softnic-profile-edu-table">
+                                <tbody>
+                                    <tr>
+                                        <!--<th scope="row">Sl. No.</th>-->
+                                        <th scope="row">Description of Goods and Services</th>
+                                        <th scope="row">HSN/SAC</th>
+                                        <th scope="row">GST Rate</th>
+                                        <th scope="row">Quantity</th>
+                                        <th scope="row">Measurement</th>
+                                        <th scope="row">Rate</th>
+                                        
+                                        <th scope="row">Disc. %</th>
+                                        <th scope="row">Amount</th>
+                                    </tr>
+                                    <tr>
+                                        <!--<td><input class="form-control" type="text" name="sl_no[]" placeholder="Sl. No."></td>--> 
+                                        <td><textarea id="desc" rows="3" class="form-control" name="desc" placeholder="Description of Goods and Services" maxlength="1500" required></textarea></td>
+                                        <td><input id="hsn_sac" class="form-control" type="text" name="hsn_sac" placeholder="HSN/SAC" maxlength="200" required></td>
+
+
+                                        <td><select id="GST" name="GST" placeholder="GST Rate" class="form-control single-select" required>
+                                            <option value="">Select GST rate</option>
+                                            <option value="18">18%</option>
+                                            <option value="0">0%</option>
+                                        </select></td>
+
+                                        <!--<td><input id="GST" class="form-control" type="number" name="GST" placeholder="GST Rate" maxlength="50" required></td>-->
+                                        <td><input id="quantity" class="form-control" type="number" name="quantity" placeholder="Quantity" maxlength="50" id="qt1" required></td>
+                                        <td><input id="measurement" class="form-control" type="number" name="measurement" placeholder="Measurement" maxlength="50" id="mt1" required></td>
+                                        <td><input id="rate" class="form-control" type="number" name="rate" placeholder="Rate" maxlength="50" id="rt1" required></td>
+                                        <td><input id="disc" class="form-control" type="number" name="disc" placeholder="Disc %" maxlength="50" id="dt1" required></td>
+                                        <td><input id="amount" class="form-control" type="number" name="amount" placeholder="Amount" required></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <script>
+
+                                
+                                var GST = Number();
+                                var quantity = Number();
+                                var measurement = Number();
+                                var rate = Number();
+                                var disc = Number();
+
+                                var amount = Number();
+
+                                var inp1 = document.getElementById("quantity");
+                                inp1.addEventListener("input", function () {
+                                    document.getElementById("measurement").disabled = this.value != "";
+                                
+                                        GST = $("#GST").val();
+                                                                                
+                                                                                
+                                        quantity = $("#quantity").val();
+                                        if(!quantity){
+                                            quantity = 0
+                                        }
+                                        
+                                        
+                                        measurement = $("#measurement").val();
+                                        if(!measurement){
+                                            measurement = 0
+                                        }
+                                        rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                        disc = $("#disc").val();
+                                        if(!disc){
+                                            disc = 0
+                                        }
+                                        
+                                        //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                        calculate_total_amount()
+                                    
+                                });
+
+                                var inp2 = document.getElementById("measurement");
+                                inp2.addEventListener("input", function () {
+                                    document.getElementById("quantity").disabled = this.value != "";
+                                   
+                                        GST = $("#GST").val();
+
+                                        
+                                        quantity = $("#quantity").val();
+                                        if(!quantity){
+                                            quantity = 0
+                                        }
+
+
+                                        measurement = $("#measurement").val();
+                                        if(!measurement){
+                                            measurement = 0
+                                        }
+                                        rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                        disc = $("#disc").val();
+                                        if(!disc){
+                                            disc = 0
+                                        }
+
+                                        //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                        calculate_total_amount()
+
+                                    
+                                });
+
+                                var inp3 = document.getElementById("desc");
+                                inp3.addEventListener("input", function () {
+                                   
+                                        GST = $("#GST").val();
+
+                                        
+                                        quantity = $("#quantity").val();
+                                        if(!quantity){
+                                            quantity = 0
+                                        }
+
+
+                                        measurement = $("#measurement").val();
+                                        if(!measurement){
+                                            measurement = 0
+                                        }
+                                        rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                        disc = $("#disc").val();
+                                        if(!disc){
+                                            disc = 0
+                                        }
+
+                                        //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                        calculate_total_amount()
+                                    
+
+                                });
+
+                                var inp4 = document.getElementById("hsn_sac");
+                                inp4.addEventListener("input", function () {
+                                  
+                                    
+                                        GST = $("#GST").val();
+
+                                        
+                                        quantity = $("#quantity").val();
+                                        if(!quantity){
+                                            quantity = 0
+                                        }
+
+
+                                        measurement = $("#measurement").val();
+                                        if(!measurement){
+                                            measurement = 0
+                                        }
+                                        rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                        disc = $("#disc").val();
+                                        if(!disc){
+                                            disc = 0
+                                        }
+
+                                        //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                        calculate_total_amount()                             
+
+                                });
+
+                                var inp5 = document.getElementById("GST");
+                                inp5.addEventListener("input", function () {
+                                    
+                                        GST = $("#GST").val();
+
+                                        
+                                        quantity = $("#quantity").val();
+                                        if(!quantity){
+                                            quantity = 0
+                                        }
+
+
+                                        measurement = $("#measurement").val();
+                                        if(!measurement){
+                                            measurement = 0
+                                        }
+                                        rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                        disc = $("#disc").val();
+                                        if(!disc){
+                                            disc = 0
+                                        }
+
+                                       //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                        calculate_total_amount()
+
+                                });
+
+                                var inp6 = document.getElementById("rate");
+                                inp6.addEventListener("input", function () {
+                                    
+                                    
+                                    GST = $("#GST").val();
+
+                                        
+                                    quantity = $("#quantity").val();
+                                    if(!quantity){
+                                        quantity = 0
+                                    }
+                                    
+                                    
+                                    measurement = $("#measurement").val();
+                                    if(!measurement){
+                                        measurement = 0
+                                    }
+                                    rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                    disc = $("#disc").val();
+                                    if(!disc){
+                                        disc = 0
+                                    }
+                                    
+                                    //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                    calculate_total_amount()
+
+                                });
+
+                                var inp7 = document.getElementById("disc");
+                                inp7.addEventListener("input", function () {
+                                    
+                                        GST = $("#GST").val();
+
+                                        
+                                        quantity = $("#quantity").val();
+                                        if(!quantity){
+                                            quantity = 0
+                                        }
+
+
+                                        measurement = $("#measurement").val();
+                                        if(!measurement){
+                                            measurement = 0
+                                        }
+
+
+                                        rate = $("#rate").val();
+                                        if(!rate){
+                                            rate = 0
+                                        }
+
+                                        disc = $("#disc").val();
+                                        if(!disc){
+                                            disc = 0
+                                        }
+
+
+                                        //console.log(GST, "quantity=" + quantity, " measurement=" + measurement, rate, disc)
+                                        calculate_total_amount()
+
+                                });
+
+
+                                function calculate_total_amount(){
+                                    amount = ((parseFloat(quantity)*parseFloat(rate)) + parseFloat(measurement)*parseFloat(rate))
+
+                                    amount = amount - ((amount*parseFloat(disc))/100)
+
+                                    amount = amount + ((amount*parseFloat(GST))/100)
+
+                                    amount = amount.toFixed(2)
+                                    
+                                    //parseFloat(GST)   
+                                    //parseFloat(quantity) 
+                                    //parseFloat(measurement) 
+                                    //parseFloat(rate)  
+                                    //parseFloat(disc)
+
+                                    //console.log(amount)
+
+                                    $('#amount').attr('value', amount);
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <input type="hidden" name="sid" value="370">
+                    
+                    </form>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button onclick="billData_form()" data-dismiss="modal" name="add_data" class="btn btn-primary"><i class="fa fa-check-square-o"></i>&nbsp; Add</button>
+                    </div>
+
+                    <script>
+                        function  billData_form() {
+                            console.log("billData_form")
+                            var formEl = document.forms.billData_form;
+                            var formData = new FormData(formEl);
+
+
+                            var desc =  formData.get('desc');
+                            var hsn_sac =  formData.get('hsn_sac');
+                            var GST = formData.get('GST');
+                            var quantity =  formData.get('quantity');
+                            var measurement =  formData.get('measurement');
+                            var rate =  formData.get('rate');
+                            var disc =  formData.get('disc');
+                            var amount =  formData.get('amount');
+
+                            //console.log(formData);
+                            if ((!desc || !hsn_sac || !GST || !rate || !disc || !amount)||(!quantity && !measurement)) {
+                              alert("Please fill all the mandatory inputs");
+                            }else{
+                                const url0056 = "/view_project/final_report/add_bill_data?desc=" + desc + "&hsn_sac=" + hsn_sac + "&GST=" + GST + "&quantity=" + quantity + "&measurement=" + measurement + "&rate=" + rate + "&disc=" + disc + "&amount=" + amount;
+                            fetch(url0056)
+                                .then(function () {  
+                                    //return response.json();
+                                })
+                                .then(function () {
+                                   
+                                    //$("#dailyexpenses_data tr").remove(); 
+                                    fillFinalBill();
+                                })
+                                .catch(function (err) {
+                                    console.log('error: ' + err);
+                                });  
+                            }
+                            
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!--Generate Final Bill2 End-->
+
+
+    <!--Modal Data End-->
+
+    <!-- modal data start -->
+
+    <div class="modal fade" id="workReport" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Work Report <font style="color: red;">(<b>*</b> You need to fill up all the field)</font></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="#" method="post"  id="#">
+                <div class="modal-body">
+                    <!--<div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Project ID<font style="color: red;">*</font></label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" name="project_id" class="form-control" placeholder="Project ID" value="demo_project_id" disabled>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Date<font style="color: red;">*</font></label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="date" name="date" class="form-control" placeholder="Date" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Work Done<font style="color: red;">*</font></label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <textarea  name="work_done" class="form-control" rows="5" placeholder="Work Done" required maxlength="15000"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Pending Work<font style="color: red;">*</font></label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <textarea  name="pending_work" class="form-control" rows="5" placeholder="Pending Work" required maxlength="15000"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Next Day Plan<font style="color: red;">*</font></label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <textarea  name="next_day_plan" class="form-control" rows="5" placeholder="Next Day Plan" required maxlength="15000"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Days Required</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" name="days_required" class="form-control"  placeholder="Days Required" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group row">
+                        <label for="input-21" class="col-sm-3 col-form-label">Days Left</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" name="days_left" class="form-control"  placeholder="Days Left" required>
+                            </div>
+                        </div>
+                    </div>-->
+                    
+                </div>
+                <input type="hidden" name="sid" value="370">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    <button type="submit" name="add_daily_expenses" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Add</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+        id="default-drawer">
+       <div class="mdk-drawer__content">
+           <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                data-perfect-scrollbar>
+
+               <!-- Sidebar Content -->
+
+               <a href="/home"
+                  class="sidebar-brand ">
+                   <!-- <img class="sidebar-brand-icon" src="./public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                   <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                       <span class="avatar-title rounded"><img src="logo.jpg"
+                           alt="logo"
+                           class="img-fluid" /></span>
+
+                   </span>
+
+                   <span>Welcome Admin</span>
+               </a>
+
+               
+                   
+               <ul class="sidebar-menu">
+
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/home">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                           <span class="sidebar-menu-text">Dashboard</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/code">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                           <span class="sidebar-menu-text">Add Code</span>
+                       </a>
+                   </li>
+                   <ul class="sidebar-menu">
+
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button js-sidebar-collapse"
+                              data-toggle="collapse"
+                              href="#enterprise_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                               Clients
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="enterprise_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/client">
+                                       <span class="sidebar-menu-text">Client</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/add_client">
+                                       <span class="sidebar-menu-text">Add Client</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              data-toggle="collapse"
+                              href="#account_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                               Quatation
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="account_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/quatation">
+                                       <span class="sidebar-menu-text">Quatation</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/add_quatation">
+                                       <span class="sidebar-menu-text">Create Quatation</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              href="/project">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                               <span class="sidebar-menu-text">Project</span>
+                           </a>
+                       </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#ecommerce_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                           Finance
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="ecommerce_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/finance">
+                                   <span class="sidebar-menu-text">Finance</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_finance">
+                                   <span class="sidebar-menu-text">Add Expenses</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/acc_sum">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                           <span class="sidebar-menu-text">Total Account Summery</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/profit_loss">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                           <span class="sidebar-menu-text">Profit/Loss</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#messaging_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                           Employee
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="messaging_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/employee">
+                                   <span class="sidebar-menu-text">Employee</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_employee">
+                                   <span class="sidebar-menu-text">Add Employee</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#components_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                           Users
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="components_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/user">
+                                   <span class="sidebar-menu-text">Users</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_user">
+                                   <span class="sidebar-menu-text">Add Users</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/system_history">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                           <span class="sidebar-menu-text">System History</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/bin">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                           <span class="sidebar-menu-text">Recyle Bin</span>
+                       </a>
+                   </li>
+               </ul>
+               
+
+               <!-- // END Sidebar Content -->
+
+           </div>
+       </div>
+   </div>
+
+   <!-- // END Drawer -->
+
+       
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+
+        <script>
+            $(document).ready(function(){
+                $('.makeRestoreClick').on('click', function(event){
+                    event.preventDefault();
+                    swal({
+                        title: "Are you sure?",
+                        text: "Once pressed ok, changes will be restored.",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            window.location = $(this).attr('href');
+                        }
+                    });
+                });
+
+                $('.makeEmptyClick').on('click', function(event){
+                    event.preventDefault();
+                    swal({
+                        title: "Are you sure?",
+                        text: "Once pressed ok, you can not restore the data",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            window.location = $(this).attr('href');
+                        }
+                    });
+                });
+
+
+            });
+
+            function  wrongClick(clicked_id) {
+                const url5678 = "/payment_history/pay_now/wrong_transaction?month="+clicked_id; 
+                fetch(url5678)
+                    .then(function (response) {  
+                    })
+                    .then(function () {
+                        alert("Payment Reverted!");
+                        show();
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });  
+            }
+
+            function  payClick(clicked_id) {
+                const url1234 = "/payment_history/pay_now/pay_single?month="+clicked_id; 
+                fetch(url1234)
+                    .then(function (response) {  
+                    })
+                    .then(function () {
+                        alert("Payment Successful!");
+                        show()
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    });  
+            }
+
+
+            //-----------
+
+            function  wrongClickOthers(clicked_id) {            
+                const url3456 = "/payment_history/other_expenses/wrong_transaction?id="+clicked_id; 
+                fetch(url3456)
+                    .then(function (response) {  
+                    })
+                    .then(function () {
+                        alert("Payment Reverted!");
+                        show();
+                    })
+                    .catch(function (err) {
+                        console.log('error: ' + err);
+                    }); 
+            }
+
+            function  payClickOthers(clicked_id) {        
+                const url7890 = "/payment_history/other_expenses/pay_single?id="+clicked_id;  
+                    fetch(url7890)
+                        .then(function (response) {  
+                        })
+                        .then(function () {
+                            alert("Payment Successful!");
+                            show();
+                        })
+                        .catch(function (err) {
+                            console.log('error: ' + err);
+                        }); 
+            }
+
+        </script>
+
+        <script>
+        
+        
+            $('#monthCount').on('change', function(){
+                num1 = document.getElementById("firstNumber").value;
+                num2 = document.getElementById("monthCount").value;
+                //document.getElementById("result").innerHTML = num1 / num2;
+                 var fees = num1/num2;
+                
+                var month = ["","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                var count = $(this).val();
+                var thtml = '';
+                for (i=1; i <= count; i++) {
+                    thtml += '<div class="form-group row"><label for="input-21" class="col-sm-2 col-form-label">'+month[i]+'</label><div class="col-sm-4"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money"></i></span></div><input type="text" name="'+month[i]+'"  value="'+ fees +'" class="form-control" id></div></div></div>';
+                    
+                }
+                $('#monFeesHtmlHolder').html(thtml);
+
+            });
+        </script>
+
+        <script>
+           //$(document).on('click','#cmd',function(){
+           //let pdf = new jsPDF();
+           //let section=$('#content');
+           //let page= function() {
+           //    pdf.save('Daily Expenses Receipt.pdf');
+           //
+           //};
+
+           //pdf.addHTML(section,page);
+           //})
+
+           function printForm1() {
+                
+
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+
+                today = dd + '.' + mm + '.' + yyyy;
+                
+
+                const url110 = "/daily_expenses/bill_no";
+                fetch(url110)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    $("#data_billNo0").empty(); 
+                   
+                    $("#data_billNo0").append(
+                    '<p style="position: absolute; top: 50px;left: 70px;">DATED: ' + today + '</p>' +
+                    '<p style="position: absolute; top: 90px;left: 70px;">BILLNO: ' + data[0].id + '</p>'
+                    );
+
+                    printJS({
+                    printable: 'content',
+                    type: 'html',
+                    targetStyles: ['*'],
+                    //header: 'PrintJS - Print Form With Customized Header'
+                    })
+                    
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                }); 
+
+            }
+        </script>
+
+        <script>
+            //$(document).on('click','#cmd1',function(){
+            //let pdf = new jsPDF('l', 'in', 'a4');
+            //let section=$('#content1');
+            //let page= function() {
+            //    pdf.save('Client Receipt.pdf');
+            //
+            //};
+            //
+            //pdf.addHTML(section,page);
+            //})
+
+            function printForm() {
+
+
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYea
+                today = dd + '.' + mm + '.' + yyyy;
+                
+                const url10 = "/pay_by_client/bill_no";
+                fetch(url10)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    $("#data_billNo").empty(); 
+                   
+                    $("#data_billNo").append(
+                    '<p style="position: absolute; top: 50px;left: 70px;">DATED: ' + today + '</p>' +
+                    '<p style="position: absolute; top: 90px;left: 70px;">BILLNO: ' + data[0].id + '</p>'
+                    );
+
+                    printJS({
+                    printable: 'content1',
+                    type: 'html',
+                    targetStyles: ['*'],
+                    //header: 'PrintJS - Print Form With Customized Header'
+                    })
+
+                    
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+                
+            }   
+
+        </script>
+
+        <script>
+            //$(document).on('click','#cmd1',function(){
+            //let pdf = new jsPDF('l', 'in', 'a4');
+            //let section=$('#content1');
+            //let page= function() {
+            //    pdf.save('Client Receipt.pdf');
+            //
+            //};
+            //
+            //pdf.addHTML(section,page);
+            //})
+            
+            function final_bill() {
+                printJS({
+                printable: 'final',
+                type: 'html',
+                targetStyles: ['*'],
+                //header: 'PrintJS - Print Form With Customized Header'
+                })
+            }   
+
+            function reset_bill(){
+                const url055 = "/bill_data/reset";
+                fetch(url055)
+                .then(function () {
+                    //return response.json();
+                })
+                .then(function () {
+                    
+                    fillFinalBill();
+                    
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            }
+        
+        </script>
+
+        <script>
+        
+            $(document).ready(function() {
+            
+                $('.softnic-profile-edit-btn').on('click', function(){
+                    $('.softnic-profile-edu-table').find('tbody').append('<tr><td><textarea rows="3" class="form-control" name="desc[]" placeholder="Description of Goods and Services" required></textarea></td><td><input class="form-control" type="text" name="hsn_sac[]" placeholder="HSN/SAC" required></td><td><input class="form-control" type="text" name="GST[]" placeholder="GST Rate" required></td><td><input class="form-control" type="text" name="quantity[]" placeholder="Quantity" required></td><td><input class="form-control" type="text" name="measurement[]" placeholder="Measurement" required></td><td><input class="form-control" type="number" name="rate[]" placeholder="Rate" required></td><td><input class="form-control" type="text" name="disc[]" placeholder="Disc %" required></td><td><input class="form-control" type="text" name="amount[]" placeholder="Amount" required></td></tr>');
+                });
+            });
+
+        </script>
+</body>
+</html>

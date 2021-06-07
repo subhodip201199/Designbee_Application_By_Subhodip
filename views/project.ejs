@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Design Bee Studio</title>
+              <link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="page-section border-bottom-2">
+                    <div class="container page__container">
+
+                        <!-- Breadcrumb-->
+                        <div class="row pt-2 pb-2">
+                            <div class="col-sm-9">
+                                <h4 class="page-title">Projects</h4>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="javaScript: void();">Projects</a></li>
+                                </ol>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0" data-toggle="modal" data-target="#createproject">
+                                    <div class="card-body">
+                                        <h4 class="h2 mb-0"><i class="fa fa-plus"></i> Create Project</h4>   
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="card table-responsive">
+                            <table class="table table-flush table-nowrap table-light table-striped shadow-light" style="text-align: center;">
+                                <thead>
+                                    <tr>                                        
+                                        <th scope="col">Project ID</th>
+                                        <th scope="col">Project Name</th>
+                                        <th scope="col">Project Details</th>
+                                        <th scope="col">Client Name</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="project_list">
+                                    <!--<tr>                                        
+                                        <td scope="col"><a href="/receipt_generate" style="color: blue;">Demo Project ID</a></td>
+                                        <td scope="col"><a href="/view_project" style="color: blue;">Demo Project Name</a></td>
+                                        <td scope="col">Demo Project Details</td>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                            <!--<script>
+                                var student_id;
+                                var student_class;
+                                
+                        
+                                 function submit() { 
+                        
+                                    var formEl = document.forms.std_form;
+                                    var formData = new FormData(formEl);
+                                    student_id = formData.get('student_id');
+                                    student_class = formData.get('student_class');
+                                   
+                        
+                                    const url = "/search_students?student_id=" + student_id + "&" + "student_class=" + student_class;
+                                    if(!student_id && !student_class){
+                                        alert("Please fill a")
+                                        
+                                    } else {
+                                        fetch(url)
+                                        .then(function (response) {
+                                            return response.json();
+                                        })
+                                        .then(function (data) {
+                                            $("#std_det tbody tr").remove(); 
+                                            appendData(data);
+                                        })
+                                        .catch(function (err) {
+                                            console.log('error: ' + err);
+                                        });
+                                    }
+                        
+                                    
+                        
+                        
+                                    
+                        
+                                    function appendData(data) {
+                                        var mainContainer = document.getElementById("tbody");
+                                        
+                                        for (var i = 0; i < data.length; i++) {
+                        
+                                           
+                        
+                                            var id = data[i].student_id;
+                                            
+                        
+                                            var div = document.createElement("tr");
+                                            div.innerHTML = '<tr>' +
+                                                                
+                                                                '<td scope="col">' + 
+                                                                    '<input type="checkbox" value="' + id + '" name="cKInputNumId" class="checkbox singleCheckBox" />' + 
+                                                                '</td>' +
+                                                                '<td>' +
+                                                                    '<a href="/student-profile?student_id=' + id + '"" style="color: blue;">' + id + '</a>' +
+                                                                '</td>' +
+                                                                '<td>' + 
+                                                                    '<a href="/student-profile?student_id=' + id + '"" style="color: blue;">' + data[i].first_name + '&nbsp' + data[i].last_name + '</a>' +
+                                                                '</td>' +
+                                                                '<td>'+ 
+                                                                    data[i].roll_no +
+                                                                '</td>' +
+                                                                '<td>'+ 
+                                                                    data[i].student_class +
+                                                                '</td>' +
+                                                                '<td>' + 
+                                                                    data[i].session + 
+                                                                '</td>' +
+                                                                '<td>' + 
+                                                                    data[i].guardian_phone +
+                                                                '</td>' +
+                                                                '<td>' +
+                                                                    data[i].email +
+                                                                '</td>' +
+                                                            '</tr>' ;
+                                            mainContainer.appendChild(div);
+    
+    
+                                        }
+                                    }
+                                }
+                            
+                                    
+                            </script>-->
+
+                            <script>
+                                const url = "/project/getdata";
+                                fetch(url)
+                                        .then(function (response) {
+                                            return response.json();
+                                        })
+                                        .then(function (data) {
+                                            //$("#std_det tbody tr").remove(); 
+                                            appendData(data);
+                                        })
+                                        .catch(function (err) {
+                                            console.log('error: ' + err);
+                                        });
+
+                                        function appendData(data) {
+                                        var mainContainer = document.getElementById("project_list");
+
+                                        var id;
+                                        var client_id;
+        
+                                        
+                                        for (var i = 0; i < data.length; i++) {
+                        
+                                           
+                        
+                                            id = data[i].project_id;
+                                            client_id = data[i].client_id
+                        
+                                            var div = document.createElement("tr");
+                                            div.innerHTML = '<tr>' +
+                                                                
+                                                                '<td>' + 
+                                                                    '<a href="/view_project?project_id=' + id + '&client_id=' + client_id +'" style="color: blue;">' + 'PROJECT ID: ' + id + '</a>' +
+                                                                '</td>' +
+                                                                '<td>' +
+                                                                    '<a href="/view_project?project_id=' + id + '&client_id=' + client_id +'" style="color: blue;">' + data[i].project_name + '</a>' +
+                                                                    
+                                                                '</td>' +
+                                                                
+                                                                '<td>'+ 
+                                                                    data[i].project_details +
+                                                                '</td>' +
+                                                                '<td>'+ 
+                                                                    data[i].client_name +
+                                                                '</td>' +
+                                                                '<td>'+ 
+                                                                    data[i].status +
+                                                                '</td>' +
+                                                                '<td>' + 
+                                                                    '<button type="button" id="' + id + '" onclick="active_project(this.id)" class="btn btn-outline-dark waves-effect waves-light btn-sm m-1">Ongoing</button>' +
+                                                                    '<button type="button" id="' + id + '" onclick="deactive_project(this.id)" class="btn btn-outline-dark waves-effect waves-light btn-sm m-1">Completed</button>' +
+                                                                    '<button type="button" id="' + id + '" onclick="remove_project(this.id)"  class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right"><i class="fa fa-trash mr-1"></i> REMOVE</button>' + 
+                                                                '</td>' +
+                                                                
+                                                            '</tr>' ;
+                                            mainContainer.appendChild(div);
+    
+    
+                                        }
+                                    }
+
+                                    function deactive_project(clicked_id){
+                                        const url = "/project/deactive?project_id=" + clicked_id;
+                    
+                                        fetch(url)
+                                            .then(function () {
+                                                //return response.json();
+                                            })
+                                            .then(function () {
+                                                $("#project_list tr").remove(); 
+                                                //submit()
+                                                const url22 = "/project/getdata";
+                                                fetch(url22)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                            //$("#std_det tbody tr").remove(); 
+                                                            appendData(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                            })
+                                            .catch(function (err) {
+                                                console.log('error: ' + err);
+                                            });
+                                    }
+
+
+                                    function active_project(clicked_id){
+                                        const url = "/project/active?project_id=" + clicked_id;
+                    
+                                        fetch(url)
+                                            .then(function () {
+                                                //return response.json();
+                                            })
+                                            .then(function () {
+                                                $("#project_list tr").remove(); 
+                                                //submit()
+                                                const url22 = "/project/getdata";
+                                                fetch(url22)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                            //$("#std_det tbody tr").remove(); 
+                                                            appendData(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                            })
+                                            .catch(function (err) {
+                                                console.log('error: ' + err);
+                                            });
+                                    }
+
+                                    function remove_project(clicked_id){
+                                        const url = "/project/remove?project_id=" + clicked_id;
+                    
+                                        fetch(url)
+                                            .then(function () {
+                                                //return response.json();
+                                            })
+                                            .then(function () {
+                                                $("#project_list tr").remove(); 
+                                                //submit()
+                                                const url22 = "/project/getdata";
+                                                fetch(url22)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (data) {
+                                                            //$("#std_det tbody tr").remove(); 
+                                                            appendData(data);
+                                                        })
+                                                        .catch(function (err) {
+                                                            console.log('error: ' + err);
+                                                        });
+                                            })
+                                            .catch(function (err) {
+                                                console.log('error: ' + err);
+                                            });
+                                    }
+                            </script>
+    
+                
+                </div>
+                <div class="bg-white border-top-2 mt-auto">
+                    <div class="container page__container page-section d-flex flex-column">
+                        <p class="text-70 brand mb-24pt">
+                            <img class="brand-icon"
+                                 src="maze.jpeg"
+                                 width="150"
+                                 alt="mazesoftsolution">
+                        </p>
+                        <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                        <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                    </div>
+                </div>
+            <!-- // END Header Layout -->
+            </div>
+            </div>
+            
+        <!--Modal Start-->
+        <div class="modal fade" id="createproject" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/project/add_project" method="post">
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-2 col-form-label">Client ID <b style="color: red;">*</b></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                        </div>
+                                        <input name="client_id" class="form-control" placeholder="Client ID"  required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-2 col-form-label">Project Name <b style="color: red;">*</b></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-keyboard"></i></span>
+                                        </div>
+                                        <input type="text" name="project_name" class="form-control" placeholder="Project Name" maxlength="200" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-2 col-form-label">Project Details <b style="color: red;">*</b></label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <textarea rows="6" name="project_details" class="form-control" placeholder="Type Your Project Details" maxlength="1500" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <input type="hidden" name="sid" value="370">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="submit" name="addproject" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Create Project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Modal data end-->
+
+        <!--Drawer Start-->
+        <div class="mdk-drawer js-mdk-drawer"
+        id="default-drawer">
+       <div class="mdk-drawer__content">
+           <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                data-perfect-scrollbar>
+
+               <!-- Sidebar Content -->
+
+               <a href="/home"
+                  class="sidebar-brand ">
+                   <!-- <img class="sidebar-brand-icon" src="./public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                   <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                       <span class="avatar-title rounded"><img src="logo.jpg"
+                           alt="logo"
+                           class="img-fluid" /></span>
+
+                   </span>
+
+                   <span>Welcome Admin</span>
+               </a>
+
+               
+                   
+               <ul class="sidebar-menu">
+
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/home">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                           <span class="sidebar-menu-text">Dashboard</span>
+                       </a>
+                   </li>
+                   <ul class="sidebar-menu">
+
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button js-sidebar-collapse"
+                              data-toggle="collapse"
+                              href="#enterprise_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                               Clients
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="enterprise_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/client">
+                                       <span class="sidebar-menu-text">Client</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/add_client">
+                                       <span class="sidebar-menu-text">Add Client</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              data-toggle="collapse"
+                              href="#account_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                               Quatation
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="account_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/quatation">
+                                       <span class="sidebar-menu-text">Quatation</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/add_quatation">
+                                       <span class="sidebar-menu-text">Create Quatation</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              href="/project">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                               <span class="sidebar-menu-text">Project</span>
+                           </a>
+                       </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#ecommerce_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                           Finance
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="ecommerce_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/finance">
+                                   <span class="sidebar-menu-text">Finance</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_finance">
+                                   <span class="sidebar-menu-text">Add Expenses</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/acc_sum">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                           <span class="sidebar-menu-text">Total Account Summery</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/profit_loss">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                           <span class="sidebar-menu-text">Profit/Loss</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#messaging_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                           Employee
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="messaging_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/employee">
+                                   <span class="sidebar-menu-text">Employee</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_employee">
+                                   <span class="sidebar-menu-text">Add Employee</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#components_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                           Users
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="components_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/user">
+                                   <span class="sidebar-menu-text">Users</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_user">
+                                   <span class="sidebar-menu-text">Add Users</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/system_history">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                           <span class="sidebar-menu-text">System History</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/bin">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                           <span class="sidebar-menu-text">Recyle Bin</span>
+                       </a>
+                   </li>
+               </ul>
+               
+
+               <!-- // END Sidebar Content -->
+
+           </div>
+       </div>
+   </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+    </body>
+</html>

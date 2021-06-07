@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#FDFEFE">
+
+        <title> Design Bee Studio</title>
+        <link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!--For Text Editor-->
+        <script src="./public/ckeditor/ckeditor.js"></script>
+        
+        <!--<script>
+
+            const url1111 = "/dashboard/getdata";
+
+    
+
+            fetch(url1111)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    if(data[0].credit !== null){
+                        var credit = data[0].credit;
+                    }else {
+                        var credit = 0;
+                    }
+
+                    if(data[0].debit !== null){
+                        var debit = data[0].debit;
+                    }else {
+                        var debit = 0;
+                    }
+                    
+                    if(data[0].earning !== null){
+                        var earning = data[0].earning;
+                    }else {
+                        var earning = 0;
+                    }
+                    
+                    
+                    document.getElementById("total_credit").innerHTML = '<h4 class="h2 mb-0">₹ ' + credit + '</h4>' +
+                                        '<div><b>Total Credit This Month</b></div>'
+                
+                    document.getElementById("total_debit").innerHTML = '<h4 class="h2 mb-0">₹ ' + debit + '</h4>' +
+                                        '<div><b>Total Debit This Month</b></div>'
+
+                    document.getElementById("total_earning").innerHTML = '<h4 class="h2 mb-0">₹ ' + earning + '</h4>' +
+                                        '<div><b>Total Earning This Month</b></div>'
+
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+            
+                    
+        </script>-->
+
+        
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+                    <div class="sk-bounce-dot"></div>
+                    <div class="sk-bounce-dot"></div>
+            </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+                <div class="clearfix"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">Add Quatation</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript:void();">Create Quatation</a></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!--<div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">Add Your Client ID :&nbsp;&nbsp;
+                                <font style="color: red;">**</font><button type="button" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1" data-toggle="modal" data-target="#clientid"> <i class="fa fa-plus"></i> &nbsp;Add Your Client ID</button>
+                            </h4>
+                        </div>
+                    </div>-->
+                    <!-- End Breadcrumb-->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0" data-toggle="modal" data-target="#addmaterials">
+                                <div class="card-body">
+                                    <h4 class="mb-0"><i class="fa fa-plus"></i> Add Your Specification of Materials</h4>   
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0" data-toggle="modal" data-target="#termsandconditions">
+                                <div class="card-body">
+                                    <h4 class="mb-0"><i class="fa fa-plus"></i> Add Terms and Condition</h4>   
+                                </div>
+                            </button>
+                        </div>
+                        <!--<div class="col-lg-6">
+                            <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0" data-toggle="modal" data-target="#heading">
+                                <div class="card-body">
+                                    <h4 class="mb-0"><i class="fa fa-plus"></i> Add Your Heading</h4>   
+                                </div>
+                            </button>
+                        </div>-->
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0" data-toggle="modal" data-target="#corporate-quatation">
+                                <div class="card-body">
+                                    <h4 class="mb-0"><i class="fa fa-plus"></i> Create Corporate Quatation</h4>   
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0" data-toggle="modal" data-target="#housing-quatation">
+                                <div class="card-body">
+                                    <h4 class="mb-0"><i class="fa fa-plus"></i> Create Housing Quatation</h4>   
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End container-fluid-->
+                <div class="overlay"></div>    
+            </div>
+            <!--End Header Layout Content-->
+                
+
+             <!--End Back To Top Button-->
+            <!-- // END Header Layout Content -->
+
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+
+            <!-- // END Footer -->
+
+        </div>
+        <!-- // END Header Layout -->
+
+        </div>
+        <!--Modal Start-->
+        <div class="modal fade" id="addmaterials" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Your Specification of Materials</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/addmaterial" method="post">
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Client ID</label>
+                                <div class="form-group col-sm-9">
+                                    <input type="text" name="client_id" class="form-control" placeholder="Client ID" required maxlength="4">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Specification of Materials</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea"></textarea>-->
+                                            <textarea name="metarials" id="editor1" rows="3" cols="10" maxlength="5000" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <input type="hidden" name="sid" value="370">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="submit" name="creatematerials" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Create</button>
+                        </div>
+                    </form>
+                    <script>
+                        // Replace the <textarea> with a CKEditor
+                        CKEDITOR.replace('editor1');
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="termsandconditions" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Your Terms and Condition</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/addtermsandconditions" method="post">
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Client ID</label>
+                                <div class="form-group col-sm-9">
+                                    <input type="text" name="client_id" class="form-control" placeholder="Client ID" required maxlength="4">
+                                </div>
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Terms and Condition</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea1"></textarea>-->
+                                            <textarea name="terms" id="editor2" rows="3" cols="10" maxlength="5000" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <input type="hidden" name="sid" value="370">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="submit" name="createt&c" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Create</button>
+                        </div>
+                    </form>
+                    <script>
+                        // Replace the <textarea> with a CKEditor
+                        CKEDITOR.replace('editor2');
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="corporate-quatation" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add data for your Corporate Quatation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/corporate/add" method="post"  id="#">
+                        <div class="modal-body">
+                            <div class="row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Client ID</label>
+                                <div class="form-group col-sm-9">
+                                    <input type="text" name="client_id2" class="form-control" placeholder="Client ID" required maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Heading</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea2"></textarea>-->
+                                            <textarea name="heading2" id="editor6" rows="3" cols="10" maxlength="5000" required></textarea>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Specification of Materials</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea2"></textarea>-->
+                                            <textarea name="specification_metarials2" id="editor7" rows="3" cols="10" maxlength="5000" required></textarea>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Terms and Condition</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea2"></textarea>-->
+                                            <textarea name="terms2" id="editor8" rows="3" cols="10" maxlength="5000" required></textarea>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="sid" value="370">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="submit" name="add_data" class="btn btn-primary"><i class="fa fa-check-square-o"></i>&nbsp; Add</button>
+                        </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="housing-quatation" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add data for Your Housing Quatation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/housing/add" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Client ID</label>
+                                <div class="form-group col-sm-9">
+                                    <input type="text" name="client_id" class="form-control" placeholder="Client ID" required maxlength="4">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Heading</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea2"></textarea>-->
+                                            <textarea name="heading" id="editor3" rows="3" cols="10" maxlength="5000" required></textarea>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Specification of Materials</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea2"></textarea>-->
+                                            <textarea name="specification_metarials" id="editor4" rows="3" cols="10" maxlength="5000" required></textarea>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Terms and Condition</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="input1">
+                                        <div class="form-group">
+                                            <!--<textarea id="mytextarea2"></textarea>-->
+                                            <textarea name="terms" id="editor5" rows="3" cols="10" maxlength="5000" required></textarea>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div class="modal-body">
+                                <button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right add-more"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add More...</button>
+                                <div class="table-responsive">
+                                    <table class="table softnic-profile-edu-table2">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Sl. No.</th>
+                                                <th scope="row">PERTICULARS</th>
+                                                <th scope="row">MEASURMENT</th>
+                                                <th scope="row">SQ.FT</th>
+                                                <th scope="row">AMOUNT</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" name="sl_no[]" placeholder="Sl. No." required></td>
+                                                <td><textarea rows="3" class="form-control" name="perticulars[]" placeholder="perticulars" required></textarea></td>
+                                                <td><input class="form-control" type="text" name="measurement[]" placeholder="mesurment" required></td>
+                                                <td><input class="form-control" type="text" name="sq_ft[]" placeholder="sq.ft" required></td>
+                                                <td><input class="form-control" type="text" name="amount[]" placeholder="Amount" required></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>-->
+                            <input type="hidden" name="sid" value="370">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                <button type="submit" name="add_data" class="btn btn-primary"><i class="fa fa-check-square-o"></i>&nbsp; Add</button>
+                            </div>
+                    </form>
+                            <script>
+                                // Replace the <textarea> with a CKEditor
+                                CKEDITOR.replace('editor3');
+                                CKEDITOR.replace('editor4');
+                                CKEDITOR.replace('editor5');
+                                CKEDITOR.replace('editor6');
+                                CKEDITOR.replace('editor7');
+                                CKEDITOR.replace('editor8');
+                            </script>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="clientid" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Your Client ID</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="modal-body">
+                            <div class="form-group row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Client ID</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group" id="client-id">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Client ID" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <input type="hidden" name="sid" value="370">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <button type="submit" name="addclientid" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Create</button>
+                        </div>
+                    </form>
+                    <!--<script>
+                            const url7 = "/studentbuilding/getdata";
+
+                            
+                            fetch(url7)
+                                .then(function (response) {
+                                    return response.json();
+                                })
+                                .then(function (data) {
+                                    $("#result tr").remove(); 
+                                    appendData7(data);
+                                })
+                                .catch(function (err) {
+                                    console.log('error: ' + err);
+                                });
+                            
+                            
+                            
+                            
+                            function appendData7(data) {
+                                var mainContainer = document.getElementById("building");
+
+                                for (var i = 0; i < data.length; i++) {
+                                
+                                
+                                
+                                     id = data[i].building_number;
+                                
+                                    var div = document.createElement("tr");
+                                    div.innerHTML = '<tr>' +
+                                                        '<td style="text-align: center;">' + data[i].building_number + '</td>' +
+                                                        '<td>' + '<button type="button" id="' + id + '" onclick="remove_building(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> REMOVE</button>' + '</td>' +
+                                                    '</tr>' ;
+                                    mainContainer.appendChild(div);
+                                    
+                                }
+                            }
+
+                            function remove_building(clicked_id){
+                                alert("Are you sure you want to remove building number: " + id + " from database?");  
+                                window.location.href = "/building/remove?id="+clicked_id; 
+                                console.log(clicked_id);
+                            }
+                    </script>-->
+                </div>
+            </div>
+        </div>
+        <!--End Modal-->
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="./public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/code">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                <span class="sidebar-menu-text">Add Code</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                    Clients
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/client">
+                                            <span class="sidebar-menu-text">Client</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_client">
+                                            <span class="sidebar-menu-text">Add Client</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button"
+                                   data-toggle="collapse"
+                                   href="#account_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                    Quatation
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="account_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/quatation">
+                                            <span class="sidebar-menu-text">Quatation</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_quatation">
+                                            <span class="sidebar-menu-text">Create Quatation</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button"
+                                   href="/project">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                    <span class="sidebar-menu-text">Project</span>
+                                </a>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                Finance
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/finance">
+                                        <span class="sidebar-menu-text">Finance</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_finance">
+                                        <span class="sidebar-menu-text">Add Expenses</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/acc_sum">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Total Account Summery</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/profit_loss">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Profit/Loss</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Employee
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/employee">
+                                        <span class="sidebar-menu-text">Employee</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_employee">
+                                        <span class="sidebar-menu-text">Add Employee</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+        <!-- Global Settings -->
+        <script src="./public/js/settings.js"></script>
+
+        <!-- Moment.js -->
+        <script src="./public/vendor/moment.min.js"></script>
+        <script src="./public/vendor/moment-range.js"></script>
+
+        <!-- Chart.js -->
+        <script src="./public/vendor/Chart.min.js"></script>
+
+        <!-- UI Charts Page JS -->
+        <script src="./public/js/chartjs-rounded-bar.js"></script>
+        <script src="./public/js/chartjs.js"></script>
+
+        <!-- Chart.js Samples -->
+        <script src="./public/js/page.instructor-dashboard.js"></script>
+
+        <!-- List.js -->
+        <script src="./public/vendor/list.min.js"></script>
+        <script src="./public/js/list.js"></script>
+
+        <script>
+        
+            $(document).ready(function() {
+            
+                $('.softnic-profile-edit-btn').on('click', function(){
+                    $('.softnic-profile-edu-table1').find('tbody').append('<tr><td><input class="form-control" type="text" name="sl_no[]" placeholder="Sl. No." required></td><td><textarea rows="3" class="form-control" name="desc[]" placeholder="Description of Items" required></textarea></td><td><input class="form-control" type="text" name="unit[]" placeholder="Unit" required></td><td><input class="form-control" type="text" name="quantity[]" placeholder="Quantity" required></td><td><input class="form-control" type="text" name="rate[]" placeholder="Rate" required></td><td><input class="form-control" type="text" name="amount[]" placeholder="Amount" required></td></tr>');
+                });
+            });
+
+        </script>
+
+        <script>
+
+            $(document).ready(function() {
+            
+                $('.add-more').on('click', function(){
+                    $('.softnic-profile-edu-table2').find('tbody').append('<tr><td><input class="form-control" type="text" name="sl_no[]" placeholder="Sl. No." required></td><td><textarea rows="3" class="form-control" name="perticulars[]" placeholder="Perticulars" required></textarea></td><td><input class="form-control" type="text" name="measurement[]" placeholder="Measurment" required></td><td><input class="form-control" type="text" name="sq_ft[]" placeholder="Sq.Ft" required></td><td><input class="form-control" type="text" name="amount[]" placeholder="Amount" required></td></tr>');
+                });
+            });
+        
+        </script>
+
+        <!--<script type = "text/javascript" >  
+            tinymce.init({  
+            selector: 'textarea',  
+            width: 500  
+        }); 
+        </script>
+
+        <script>
+            $(document).ready(function() {  
+            $('#btnValue').click(function() {  
+            $("#divkarea").html("");  
+            var content = tinymce.get("txtarea").getContent();  
+            $("#divkarea").html(content);  
+            });  
+            }); 
+        </script>-->
+
+    </body>
+
+</html>

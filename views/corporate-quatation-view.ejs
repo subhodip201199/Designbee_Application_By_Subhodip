@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#FDFEFE">
+
+        <title> Design Bee Studio</title>
+        <link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css"></script>
+        <script scr="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.map"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js"></script>
+        
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+                    <div class="sk-bounce-dot"></div>
+                    <div class="sk-bounce-dot"></div>
+            </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                           class="navbar-brand mr-16pt">
+
+                            <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                                <span class="avatar-title rounded"><img src="logo.jpg"
+                                    alt="logo"
+                                    class="img-fluid" /></span>
+
+                            </span>
+
+                            <span class="d-none d-lg-block">Welcome Admin</span>
+                        </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+                <div class="clearfix"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid softnic-container-fluid">
+                    <!-- Breadcrumb-->
+                    <div class="row pt-2 pb-2">
+                        <div class="col-sm-9">
+                            <h4 class="page-title">Quatation</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/quatation">Quatation</a></li>
+                                <li class="breadcrumb-item"><a href="javaScript: void()">Corporate-Quatation</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- End Breadcrumb-->
+                    <!--corporate-quatation-->
+        <div  id="corporate-quatation" >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Corporate Quatation</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>-->
+                        <div class="col-lg-6">
+                            <button class="card border-1 border-left-3 border-left-accent text-center mb-lg-0 pull-right" data-toggle="modal" data-target="#housing-quatation2">
+                                <div class="card-body">
+                                    <h4 class="mb-0"><i class="fa fa-plus"></i> Add Items</h4>   
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body" id="content" style="background-color: white;">
+                        <div class="card-body">
+                            <!--Bill Header Start-->
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span><img src="logo.png"
+                                        alt="logo"
+                                        style="height: 200px; width: 200px;">
+                                    </span>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
+                                <div class="col-sm-4">
+                                    <p style="font-size: smaller;">PS QUBE, SUITE NO: 501, 5TH FLOOR,</p> 
+                                    <p style="font-size: smaller;">RAJARHAT. STREET NO.: 1111 KOLKATA:700135</p>
+                                    <p style="font-size: smaller;">Email : designbeestudio@gmail.com</p>
+                                    <p style="font-size: smaller;">PHONE NO: +91 9903226666/7980946344</p>
+                                    <p style="font-size: smaller;">GST: 19AAQFD6693Q1Z6</p>
+                                </div>
+                            </div>
+                            <hr style="border-color:black; border-width: 3px;">
+                            <div class="row">
+                                <div id="client_details" class="col-sm-4">
+                                    <p>Mr/Mrs/Miss,</p>
+                                    <!--<p>Demo Client Name,</p>
+                                    <p>Demo Client Add.</p>-->
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
+                                <div class="col-sm-4" id="current_date">
+                                    
+                                </div>
+                            </div>
+
+                            <table class="" border="2" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Sl. No.</th>
+                                        <th>Description Of Item</th>
+                                        <th>Unit</th>
+                                        <th>Quantity</th>
+                                        <th>Rate</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corporate_data">
+                                    <!--tr>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                            <br>
+                            <h4>Specification Of Materials</h4>
+                            
+                            <div id="specification">
+
+                            </div>
+                            <h4>Terms and Conditions</h4>
+                            
+                            <div id="terms">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>-->
+                        <button type="submit" class="btn btn-primary" id="cmd" onclick=printForm1()><i class="fa fa-download"></i>&nbsp;&nbsp;Generate</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--corporate-quatation End-->
+                </div>
+                <!-- End container-fluid-->
+                <div class="overlay"></div>    
+            </div>
+            <!--End Header Layout Content-->
+            <!--End Back To Top Button-->
+            <!-- // END Header Layout Content -->
+
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+
+            <!-- // END Footer -->
+
+        </div>
+        <!-- // END Header Layout -->
+
+        </div>
+
+
+        <!--Modal Start-->
+
+        <!--corporate-quatation-->
+        <div class="modal fade" id="corporate-quatation" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Corporate Quatation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="content" style="background-color: white;">
+                        <div class="card-body">
+                            <!--Bill Header Start-->
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span><img src="logo.png"
+                                        alt="logo"
+                                        style="height: 200px; width: 200px;">
+                                    </span>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
+                                <div class="col-sm-4">
+                                    <p style="font-size: smaller;">PS QUBE, SUITE NO: 501, 5TH FLOOR,</p> 
+                                    <p style="font-size: smaller;">RAJARHAT. STREET NO.: 1111 KOLKATA:700135</p>
+                                    <p style="font-size: smaller;">Email : designbeestudio@gmail.com</p>
+                                    <p style="font-size: smaller;">PHONE NO: +91 9903226666/7980946344</p>
+                                    <p style="font-size: smaller;">GST: 19AAQFD6693Q1Z6</p>
+                                </div>
+                            </div>
+                            <hr style="border-color:black; border-width: 3px;">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p>Mr/Mrs/Miss,</p>
+                                    <p>Demo Client Name,</p>
+                                    <p>Demo Client Add.</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
+                                <div class="col-sm-4">
+                                    <p>Date: Demo Date</p> 
+                                </div>
+                            </div>
+
+                            <table class="table softnic-profile-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sl. No.</th>
+                                        <th>Description Of Item</th>
+                                        <th>Unit</th>
+                                        <th>Quantity</th>
+                                        <th>Rate</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                        <td>xyz</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Specification Of Materials</h4>
+                            <br>
+                            <p>Demo Text</p>
+
+                            <h4>Terms and Conditions</h4>
+                            <br>
+                            <p>Demo Text</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>-->
+                        <button type="submit" class="btn btn-primary" id="cmd" onclick=printForm1()><i class="fa fa-download"></i>&nbsp;&nbsp;Generate</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--corporate-quatation End-->
+
+
+        <!--House-quatation-->
+        <!--<div class="modal fade" id="housing-quatation" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Corporate Quatation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="content" style="background-color: white;">
+                        <div class="card-body">
+                            Bill Header Start
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <span><img src="logo.png"
+                                        alt="logo"
+                                        style="height: 200px; width: 200px;">
+                                    </span>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
+                                <div class="col-sm-4">
+                                    <p style="font-size: smaller;">PS QUBE, SUITE NO: 501, 5TH FLOOR,</p> 
+                                    <p style="font-size: smaller;">RAJARHAT. STREET NO.: 1111 KOLKATA:700135</p>
+                                    <p style="font-size: smaller;">Email : designbeestudio@gmail.com</p>
+                                    <p style="font-size: smaller;">PHONE NO: +91 9903226666/7980946344</p>
+                                    <p style="font-size: smaller;">GST: 19AAQFD6693Q1Z6</p>
+                                </div>
+                            </div>
+                            <hr style="border-color:black; border-width: 3px;">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p>Mr/Mrs/Miss,</p>
+                                    <p>Demo Client Name,</p>
+                                    <p>Demo Client Add.</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
+                                <div class="col-sm-4">
+                                    <p>Date: Demo Date</p> 
+                                </div>
+                            </div>
+
+                            <table class="table softnic-profile-table">
+                                <thead>
+                                    <tr>
+                                        <th>PERTICULARS</th>
+                                        <th>MESURMENT</th>
+                                        <th>SQ.FT</th>
+                                        <th>AMOUNT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>demo xyz</td>
+                                        <td>demo xyz</td>
+                                        <td>demo xyz</td>
+                                        <td>demo xyz</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Specification Of Materials</h4>
+                            <br>
+                            <p>Demo Text</p>
+
+                            <h4>Terms and Conditions</h4>
+                            <br>
+                            <p>Demo Text</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="submit" class="btn btn-primary" id="cmd" onclick=printForm1()><i class="fa fa-download"></i>&nbsp;&nbsp;Generate</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+        <!--House-quatation End-->
+        <!--End Modal-->
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+             id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                     data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+
+                    <a href="/home"
+                       class="sidebar-brand ">
+                        <!-- <img class="sidebar-brand-icon" src="./public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                            <span class="avatar-title rounded"><img src="logo.jpg"
+                                alt="logo"
+                                class="img-fluid" /></span>
+
+                        </span>
+
+                        <span>Welcome Admin</span>
+                    </a>
+
+                    
+                        
+                    <ul class="sidebar-menu">
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/home">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/code">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                <span class="sidebar-menu-text">Add Code</span>
+                            </a>
+                        </li>
+                        <ul class="sidebar-menu">
+
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button js-sidebar-collapse"
+                                   data-toggle="collapse"
+                                   href="#enterprise_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                    Clients
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="enterprise_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/client">
+                                            <span class="sidebar-menu-text">Client</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_client">
+                                            <span class="sidebar-menu-text">Add Client</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button"
+                                   data-toggle="collapse"
+                                   href="#account_menu">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                                    Quatation
+                                    <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                </a>
+                                <ul class="sidebar-submenu collapse sm-indent"
+                                    id="account_menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/quatation">
+                                            <span class="sidebar-menu-text">Quatation</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button"
+                                           href="/add_quatation">
+                                            <span class="sidebar-menu-text">Create Quatation</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button"
+                                   href="/project">
+                                    <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                                    <span class="sidebar-menu-text">Project</span>
+                                </a>
+                            </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#ecommerce_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                                Finance
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="ecommerce_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/finance">
+                                        <span class="sidebar-menu-text">Finance</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_finance">
+                                        <span class="sidebar-menu-text">Add Expenses</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/acc_sum">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                                <span class="sidebar-menu-text">Total Account Summery</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/profit_loss">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                                <span class="sidebar-menu-text">Profit/Loss</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#messaging_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                                Employee
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="messaging_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/employee">
+                                        <span class="sidebar-menu-text">Employee</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_employee">
+                                        <span class="sidebar-menu-text">Add Employee</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               data-toggle="collapse"
+                               href="#components_menu">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                                Users
+                                <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                            </a>
+                            <ul class="sidebar-submenu collapse sm-indent"
+                                id="components_menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/user">
+                                        <span class="sidebar-menu-text">Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button"
+                                       href="/add_user">
+                                        <span class="sidebar-menu-text">Add Users</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/system_history">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                                <span class="sidebar-menu-text">System History</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button"
+                               href="/bin">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                                <span class="sidebar-menu-text">Recyle Bin</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+
+                    <!-- // END Sidebar Content -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="housing-quatation2" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add data for Your Corporate Quatation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="/corporate/add_items" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <label for="input-21" class="col-sm-3 col-form-label">Add Your Heading</label>
+                                <div class="form-group col-sm-9">
+                                    <input type="text" name="heading" id="editor3"  class="form-control" placeholder="Heading"  maxlength="200" required />
+                                </div>
+                            </div>
+                           
+
+                            <div class="modal-body">
+                                <!--<button type="button" class="btn btn-primary waves-effect waves-light m-1 pull-right add-more"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add More...</button>-->
+                                <div class="table-responsive">
+                                    <table class="table" style="width:100%; border: 4px; border-color: black;">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" style="width: 10%;">Sl. No.</th>
+                                                <th scope="row" style="width: 40%;">Description of items</th>
+                                                <th scope="row" style="width: 10%;">Unit</th>
+                                                <th scope="row" style="width: 15%;">Quantity</th>
+                                                <th scope="row" style="width: 10%;">Rate</th>
+                                                <th scope="row" style="width: 15%;">Amount</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input class="form-control" type="text" id="sl_no" name="sl_no" placeholder="Sl. No." required></td>
+                                                <td><textarea rows="3" class="form-control" id="desc" name="desc" placeholder="Description of items" required></textarea></td>
+                                                <td><input class="form-control" type="text" id="unit" name="unit" placeholder="Unit"></td>
+                                                <td><input class="form-control" type="text" id="quantity" name="quantity" placeholder="Quantity" ></td>
+                                                <td><input class="form-control" type="text" id="rate" name="rate" placeholder="Rate" ></td>
+                                                <td><input class="form-control" type="text" id="amount" name="amount" placeholder="Amount" ></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <input type="hidden" name="sid" value="370">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-inverse-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                <button type="submit" name="add_data" class="btn btn-primary"><i class="fa fa-check-square-o"></i>&nbsp; Add</button>
+                            </div>
+                    </form>
+                            <script>
+                                // Replace the <textarea> with a CKEditor
+                                CKEDITOR.replace('editor3');
+                            </script>
+                            <script>
+                                var inp1 = document.getElementById("unit");
+                                inp1.addEventListener("input", function () {
+                                    document.getElementById("quantity").required = this.value != "";
+                                    document.getElementById("rate").required = this.value != "";
+                                });
+
+                                var inp2 = document.getElementById("quantity");
+                                inp2.addEventListener("input", function () {
+                                    //document.getElementById("unit").required = this.value != "";
+                                    document.getElementById("rate").required = this.value != "";
+                                });
+
+                                var inp3 = document.getElementById("rate");
+                                inp3.addEventListener("input", function () {
+                                    //document.getElementById("unit").required = this.value != "";
+                                    document.getElementById("quantity").required = this.value != "";
+                                });
+                            </script>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+        <!-- Global Settings -->
+        <script src="./public/js/settings.js"></script>
+
+        <!-- Moment.js -->
+        <script src="./public/vendor/moment.min.js"></script>
+        <script src="./public/vendor/moment-range.js"></script>
+
+        <!-- Chart.js -->
+        <script src="./public/vendor/Chart.min.js"></script>
+
+        <!-- UI Charts Page JS -->
+        <script src="./public/js/chartjs-rounded-bar.js"></script>
+        <script src="./public/js/chartjs.js"></script>
+
+        <!-- Chart.js Samples -->
+        <script src="./public/js/page.instructor-dashboard.js"></script>
+
+        <!-- List.js -->
+        <script src="./public/vendor/list.min.js"></script>
+        <script src="./public/js/list.js"></script>
+
+        
+
+<script>
+
+    $(document).ready(function() {
+    
+        $('.add-more').on('click', function(){
+            $('.softnic-profile-edu-table').find('tbody').append('<tr><td><input class="form-control" type="text" name="sl_no[]" placeholder="Sl. No." required></td><td><textarea rows="3" class="form-control" name="desc[]" placeholder="Description of Items" required></textarea></td><td><input class="form-control" type="text" name="unit[]" placeholder="Unit" required></td><td><input class="form-control" type="text" name="quantity[]" placeholder="Quantity" required></td><td><input class="form-control" type="text" name="rate[]" placeholder="Rate" required></td><td><input class="form-control" type="text" name="amount[]" placeholder="Amount" required></td></tr>');        });
+    });
+
+</script>
+
+        <script>
+            //$(document).on('click','#cmd',function(){
+            //let pdf = new jsPDF();
+            //let section=$('#content');
+            //let page= function() {
+            //    pdf.save('Daily Expenses Receipt.pdf');
+            //
+            //};
+            
+            //pdf.addHTML(section,page);
+            //})
+            
+            function printForm1() {
+                 printJS({
+                 printable: 'content',
+                 type: 'html',
+                 targetStyles: ['*'],
+                 //header: 'PrintJS - Print Form With Customized Header'
+                 })
+             }
+        </script>
+
+
+        <script>
+            const url = "/corporate-quatation/getdata";
+        
+            fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                $("#corporate_data tr").remove(); 
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        
+            var total = new Number();
+            var unit = '';
+            var quantity = new Number();
+            var rate = new Number();
+            var amount = new Number();
+
+            function appendData(data){
+            
+                
+            
+                for (var i = 0; i < data.length; i++) {
+                
+                        unit = data[i].unit;
+                        quantity = data[i].quantity;
+                        rate = data[i].rate;
+                        amount = data[i].amount;
+
+                        if(unit == 'na'){
+                            unit = '&nbsp';
+                        }
+                        if(quantity == '0'){
+                            quantity = '&nbsp';
+                        }
+                        if(rate == '0'){
+                            rate = '&nbsp';
+                        }
+
+                        if(amount == '0'){
+                            amount = parseFloat(quantity) * parseFloat(rate);
+                        }
+                    
+                        $('#corporate_data').append(
+                                    '<tr>' +
+                                    
+                                         '<td style="width: 10%;">'+ 
+                                             '&nbsp' + data[i].sl_no +
+                                         '</td>' +
+                                         '<td style="width: 40%;">'+ 
+                                             '&nbsp<b>' + data[i].heading + '</b><br>' +
+                                             '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' +  data[i].description +
+                                         '</td>' +
+                                         '<td style="width: 10%;">' + 
+                                             unit + 
+                                         '</td>' +
+                                         '<td style="width: 15%;">' + 
+                                             quantity +
+                                         '</td>' +
+                                         
+                                         '<td style="width: 10%;">' +
+                                             rate +
+                                         '</td>' +
+                                         '<td style="width: 15%;">' +
+                                             amount +
+                                         '</td>' +
+                                        
+                                    '</tr>' 
+                    );
+                                        
+                    total += parseFloat(data[i].amount);
+                                        
+                    //if(i < data.length-1){
+                    //    if(data[i+1].heading !== null){
+                    //    
+                    //    $('#corporate_data').append(
+                    //                '<tr>' +
+                    //                
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td style="border-bottom: 1px solid #000; border-top: 1px solid #000; text-align: center;">Rs. ' + total + '</td>' +
+                    //                
+                    //                '</tr>' 
+                    //    );
+                    //                
+                    //    total = 0;
+                    //                
+                    //    }
+                    //
+                    //
+                    //}  
+                
+                    //if(i == data.length-1){
+                    //    console.log("triggered")
+                    //    $('#corporate_data').append(
+                    //                '<tr>' +
+                    //                
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td>&nbsp</td>' +
+                    //                     '<td style="border-bottom: 1px solid #000; border-top: 1px solid #000; text-align: center;">Rs. ' + total + '</td>' +
+                    //                
+                    //                '</tr>' 
+                    //    );
+                    //                
+                    //    total = 0;
+                    //                
+                    //}
+                
+                
+                    //console.log((parseInt(data.length) - parseInt(1)))
+                
+                    //}
+                }
+            }
+        
+        </script>
+
+        <script>
+        
+        const url2 = "/corporate-quatation/spec_terms/getdata";
+        
+        fetch(url2)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            $('#quatation_heading').append(
+                '<center><b><h5><u>' + data[0].quatation_heading + '</u></h5></b></center>'
+            );
+        
+            $('#specification').append(data[0].specification_metarials);
+            $('#terms').append(data[0].terms);
+        
+            client_details();
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+
+        function client_details(){
+            const url3 = "/quatation/client_data/getdata";
+        
+            fetch(url3)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+
+                $('#client_details').append(
+                    '<p>' + data[0].client_name + '</p>' +
+                    '<p>' + data[0].client_address + '</p><br>'
+                );
+            
+                current_date();
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        }
+
+        function current_date(){
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+        
+            today = dd + '.' + mm + '.' + yyyy;
+        
+            $('#current_date').append(
+                '<p>Date: ' + today + '</p>'
+            );
+        
+        
+        }
+
+
+        </script>
+
+
+
+    </body>
+
+</html>

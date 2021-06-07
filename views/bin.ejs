@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+              <title> Design Bee Studio</title>
+              <link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
+
+        <!-- Prevent the demo from appearing in search engines -->
+        <meta name="robots"
+              content="noindex">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="./public/vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="./public/css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="./public/css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="./public/css/preloader.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="./public/css/app.css"
+              rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+    </head>
+
+    <body class="layout-sticky-subnav layout-default ">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header"
+                 class="mdk-header js-mdk-header mb-0"
+                 data-fixed
+                 data-effects="">
+                <div class="mdk-header__content">
+
+                    <!-- Navbar -->
+
+                    <div class="navbar navbar-expand pr-0 navbar-dark-pickled-bluewood navbar-shadow"
+                         id="default-navbar"
+                         data-primary>
+
+                        <!-- Navbar Toggler -->
+
+                        <button class="navbar-toggler w-auto mr-16pt d-block rounded-0"
+                                type="button"
+                                data-toggle="sidebar">
+                            <span class="material-icons">short_text</span>
+                        </button>
+
+                        <!-- // END Navbar Toggler -->
+
+                        <!-- Navbar Brand -->
+
+                        <a href="/home"
+                        class="navbar-brand mr-16pt">
+
+                         <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+
+                             <span class="avatar-title rounded"><img src="logo.jpg"
+                                 alt="logo"
+                                 class="img-fluid" /></span>
+
+                         </span>
+
+                         <span class="d-none d-lg-block">Welcome Admin</span>
+                     </a>
+
+                        <!-- // END Navbar Brand -->
+
+                        
+
+                        <!-- // END Navbar Search -->
+
+                        <div class="flex"></div>
+
+                        <!-- Navbar Menu -->
+
+                        <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                            <div class="nav-item dropdown">
+                                <a href="#"
+                                   class="nav-link d-flex align-items-center dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   data-caret="false">
+
+                                    <span class="avatar avatar-sm mr-8pt2">
+
+                                        <span class="avatar-title rounded-circle bg-primary"><i class="material-icons">account_box</i></span>
+
+                                    </span>
+
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header"><strong>Account</strong></div>
+                                    <a class="dropdown-item"
+                                       href="/edit-account">Edit Account</a>
+                                    <a class="dropdown-item"
+                                       href="/logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- // END Navbar Menu -->
+
+                    </div>
+
+                    <!-- // END Navbar -->
+
+                </div>
+            </div>
+
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content page-content ">
+
+                <div class="pt-32pt">
+                    <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-sm-left">
+                        <div class="flex d-flex flex-column flex-sm-row align-items-center">
+                            
+                            <div class="mb-24pt mb-sm-0 mr-sm-24pt">
+                                <h4 class="page-title">Recycle Bin</h4>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="home">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="javaScript:void();">bin</a></li>
+                                </ol>
+                            </div>
+                                <!--<div class="col-sm-3">
+                                    <div class="btn-group float-sm-right">
+                                        <button type="button" class="btn btn-outline-primary waves-effect waves-light"><i class="fa fa-eye mr-1"></i> View</button>
+                                        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        </button>
+                                        <div class="dropdown-menu" style="padding-left: 10px;">
+                                        </div>
+                                    </div>
+                                </div>-->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container page__container page-section">
+                    <div class="row">
+                    
+                    <div class="col-md-6 p-0">
+                       
+
+                    </div>
+                    <div class="col-md-6 p-0">
+                       
+
+                    </div>
+                    </div>
+                    
+                    <br>
+                    <!--<div class="card table-responsive">
+                        <table class="table table-flush table-nowrap table-light table-striped shadow-light" id="std_det">
+                            <thead>
+                                <tr>
+                                    
+                                    
+                                    <th scope="col" style="text-align: center;">Employee ID</th>
+                                    <th scope="col" style="text-align: center;">Name</th>
+                                    <th scope="col" style="text-align: center;">Designation</th>
+                                    <th scope="col" style="text-align: center;">Phone</th>
+                                    <th scope="col" style="text-align: center;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_stf">
+                               
+                               
+                            </tbody>
+                        </table>
+                        <script>
+                            
+                            
+                    
+                            
+                    
+                                const url6 = "/bin_student/getdata";
+                    
+                                fetch(url6)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        $("#tbody_std tr").remove(); 
+                                        appendData(data);
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                    
+                    
+                                
+                    
+                                function appendData(data) {
+                                    var mainContainer = document.getElementById("tbody_std");
+                                    
+                                    for (var i = 0; i < data.length; i++) {
+                    
+                                       
+                    
+                                        var id = data[i].student_id;
+                                        
+                    
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            
+                                                            '<td style="text-align: center;">' +
+                                                                 id + 
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">' + 
+                                                                data[i].first_name + '&nbsp' + data[i].last_name +
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">'+ 
+                                                                data[i].student_class +
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">' + 
+                                                                data[i].session + 
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">' + 
+                                                                data[i].guardian_phone +
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">' +
+                                                                data[i].email +
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">' + 
+                                                                '<button id="' + id + '" type="button" onclick="restore_contact(this.id)" class="btn btn-outline-success btn-sm waves-effect waves-light m-1"><i class="fa fa-upload"></i> &nbsp;Restore</button>'+ '&nbsp;' +
+                                                                '<button id="' + id + '" type="button" onclick="delete_contact(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> Remove</button>' + 
+                                                            '</td>' +
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+
+
+                                    }
+                                }
+                            
+
+
+                            function delete_contact(clicked_id){
+                                alert("student ID: " + clicked_id + " deleted from the system!");
+
+
+                                window.location.href = "/students/delete?student_id=" + clicked_id; 
+                            };
+
+                            function restore_contact(clicked_id){
+                                alert("student ID: " + clicked_id + " restored to the system!");
+
+
+                                window.location.href = "/students/restore?student_id=" + clicked_id; 
+                            };
+                                
+                        </script>
+                       
+
+                        
+
+                        <script>
+                              
+                    
+                                const url7 = "/bin_staff/getdata";
+                    
+                                fetch(url7)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        $("#tbody_stf tr").remove(); 
+                                        appendData7(data);
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                    
+                    
+                                
+                    
+                                function appendData7(data) {
+                                    var mainContainer = document.getElementById("tbody_stf");
+                                    
+                                    for (var i = 0; i < data.length; i++) {
+                    
+                                       
+                    
+                                        var id = data[i].staff_id;
+                                        
+                    
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            
+                                                            '<td>' +
+                                                                 id +
+                                                            '</td>' +
+                                                            '<td>' + 
+                                                                data[i].first_name + '&nbsp' + data[i].last_name + 
+                                                            '</td>' +
+                                                            '<td>'+ 
+                                                                data[i].department +
+                                                            '</td>' +
+                                                            '<td>' + 
+                                                                data[i].phone + 
+                                                            '</td>' +
+                    
+                                                            '<td>' +
+                                                                data[i].email +
+                                                            '</td>' +
+                                                            '<td style="text-align: center;">' + 
+                                                                '<button id="' + id + '" type="button" onclick="restore_staff(this.id)" class="btn btn-outline-success btn-sm waves-effect waves-light m-1"><i class="fa fa-upload"></i> &nbsp;Restore</button>'+ '&nbsp;' +
+                                                                '<button id="' + id + '" type="button" onclick="delete_staff(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> Remove</button>' + 
+                                                            '</td>' +
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+
+
+                                    }
+                                }
+                            
+                            
+                            function delete_staff(clicked_id){
+                                alert("student ID: " + clicked_id + " deleted from the system!");
+
+
+                                window.location.href = "/staff/delete?staff_id=" + clicked_id; 
+                            };
+
+                            function restore_staff(clicked_id){
+                                alert("student ID: " + clicked_id + " restored to the system!");
+
+
+                                window.location.href = "/staff/restore?staff_id=" + clicked_id; 
+                            };
+                                
+                        </script>
+
+
+
+                    </div>-->
+                    <h3>PROJECTS</h3>
+                    <div class="card table-responsive">
+                        <table class="table table-flush table-nowrap table-light table-striped shadow-light" style="text-align: center;">
+                            <thead>
+                                <tr>                                        
+                                    <th scope="col">Project ID</th>
+                                    <th scope="col">Project Name</th>
+                                    <th scope="col">Project Details</th>
+                                    <th scope="col">Client Name</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="project_list">
+                                <!--<tr>                                        
+                                    <td scope="col"><a href="/receipt_generate" style="color: blue;">Demo Project ID</a></td>
+                                    <td scope="col"><a href="/view_project" style="color: blue;">Demo Project Name</a></td>
+                                    <td scope="col">Demo Project Details</td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+
+                    <script>
+                        const url5656 = "/bin/project/getdata";
+                        fetch(url5656)
+                                .then(function (response) {
+                                    return response.json();
+                                })
+                                .then(function (data) {
+                                    //$("#std_det tbody tr").remove(); 
+                                    appendData3(data);
+                                })
+                                .catch(function (err) {
+                                    console.log('error: ' + err);
+                                });
+
+                                function appendData3(data) {
+                                var mainContainer = document.getElementById("project_list");
+
+                                var id;
+                                var client_id;
+
+                                
+                                for (var i = 0; i < data.length; i++) {
+                
+                                   
+                
+                                    id = data[i].project_id;
+                                    client_id = data[i].client_id
+                
+                                    var div = document.createElement("tr");
+                                    div.innerHTML = '<tr>' +
+                                                        
+                                                        '<td>' + 
+                                                            '<a href="/view_project?project_id=' + id + '&client_id=' + client_id +'" style="color: blue;">' + 'PROJECT ID: ' + id + '</a>' +
+                                                        '</td>' +
+                                                        '<td>' +
+                                                            '<a href="/view_project?project_id=' + id + '&client_id=' + client_id +'" style="color: blue;">' + data[i].project_name + '</a>' +
+                                                            
+                                                        '</td>' +
+                                                        
+                                                        '<td>'+ 
+                                                            data[i].project_details +
+                                                        '</td>' +
+                                                        '<td>'+ 
+                                                            data[i].client_name +
+                                                        '</td>' +
+                                                        '<td>'+ 
+                                                            data[i].status +
+                                                        '</td>' +
+                                                        '<td>' + 
+                                                            '<button type="button" id="' + id + '" onclick="restore_project3(this.id)" class="btn btn-outline-dark waves-effect waves-light btn-sm m-1">Restore</button>' +
+                                                            
+                                                            '<button type="button" id="' + id + '" onclick="delete_project3(this.id)"  class="btn btn-outline-danger btn-sm waves-effect waves-light m-1 pull-right"><i class="fa fa-trash mr-1"></i> DELETE</button>' + 
+                                                        '</td>' +
+                                                        
+                                                    '</tr>' ;
+                                    mainContainer.appendChild(div);
+
+
+                                }
+                            }
+
+                            function restore_project3(clicked_id){
+                                const url3434 = "/project/restore?project_id=" + clicked_id;
+            
+                                fetch(url3434)
+                                    .then(function () {
+                                        //return response.json();
+                                    })
+                                    .then(function () {
+                                        $("#project_list tr").remove(); 
+                                        //submit()
+                                        const url22 = "/bin/project/getdata";
+                                        fetch(url22)
+                                                .then(function (response) {
+                                                    return response.json();
+                                                })
+                                                .then(function (data) {
+                                                    //$("#std_det tbody tr").remove(); 
+                                                    appendData3(data);
+                                                })
+                                                .catch(function (err) {
+                                                    console.log('error: ' + err);
+                                                });
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                            }
+
+
+                            function delete_project3(clicked_id){
+                                const url7676 = "/project/delete?project_id=" + clicked_id;
+            
+                                fetch(url7676)
+                                    .then(function () {
+                                        //return response.json();
+                                    })
+                                    .then(function () {
+                                        $("#project_list tr").remove(); 
+                                        //submit()
+                                        const url22 = "/bin/project/getdata";
+                                        fetch(url22)
+                                                .then(function (response) {
+                                                    return response.json();
+                                                })
+                                                .then(function (data) {
+                                                    //$("#std_det tbody tr").remove(); 
+                                                    appendData3(data);
+                                                })
+                                                .catch(function (err) {
+                                                    console.log('error: ' + err);
+                                                });
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                            }
+
+                            
+                    </script>
+                    <br><br><br>
+                    <h3>HOUSING QUOTATIONS</h3>
+                    <div class="card table-responsive">
+                        <table class="table table-flush table-nowrap table-light table-striped shadow-light" style="text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">QUATATION ID</th>
+                                    <th scope="col">QUATATION TITLE</th>
+                                    <th scope="col">Client ID</th>
+                                    <!--<th scope="col">Corporate Quatation</th>
+                                    <th scope="col">Housing Quatation</th>-->
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="housing">
+                                <!--<td scope="col">Demo Client ID</td>
+                                <td scope="col">-->
+                                    <!--<button type="button" class="btn btn-outline-info btn-sm waves-effect waves-light m-1" data-toggle="modal" data-target="#housing-quatation"> <i class="fa fa-eye"></i> &nbsp;View </button>-->
+                                    <!--<button type="button" id="housing-quatation-view" class="btn btn-outline-info btn-sm waves-effect waves-light m-1"> <i class="fa fa-eye"></i> &nbsp;View </button>
+                                    <button type="button" onclick="remove_quatation()" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> &nbsp;Delete </button>
+                                </td>-->
+                            </tbody>
+                        </table>
+                    
+                        <script>
+                            const url222 = "/bin/housing-quatation-list/getdata";
+                            fetch(url222)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        //$("#std_det tbody tr").remove(); 
+                                        appendData2(data);
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                                
+                                    function appendData2(data) {
+                                    var mainContainer = document.getElementById("housing");
+                                    
+                                    for (var i = 0; i < data.length; i++) {
+                                    
+                                    
+                                    
+                                        //var id = data[i].project_id;
+
+                                    
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+
+                                                            '<td>' + 
+                                                                data[i].quatation_id + 
+                                                            '</td>' +
+                                                            '<td>' +
+                                                                data[i].quatation_heading +
+
+                                                            '</td>' +
+                                                            
+                                                            '<td>'+ 
+                                                                data[i].client_id +
+                                                            '</td>' +
+                                                            '<td>'+ 
+                                                                '<button type="button" id="' + data[i].quatation_id + '" onclick="restore_quatation2(this.id)" class="btn btn-outline-success btn-sm waves-effect waves-light m-1"> <i class="fa fa-eye"></i> &nbsp;Restore </button>' +
+                                                                '<button type="button" id="' + data[i].quatation_id + '" onclick="delete_quatation2(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> &nbsp;Delete </button>' +
+                                                            '</td>' +
+                                                            
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+                                                            
+                                                            
+                                    }
+                                }
+                        </script>
+
+                        <script type="text/javascript">
+                            
+                        
+                            function delete_quatation2(clicked_id){
+                                const url333 = "/housing_quatation/delete?quatation_id=" + clicked_id;
+                                fetch(url333)
+                                    .then(function () {
+
+                                    })
+                                    .then(function () {
+                                        //$("#std_det tbody tr").remove();
+                                        const url = "/bin/housing-quatation-list/getdata";
+                                        fetch(url)
+                                                .then(function (response) {
+                                                    return response.json();
+                                                })
+                                                .then(function (data) {
+                                                    $("#housing tr").remove(); 
+                                                    appendData2(data);
+                                                })
+                                                .catch(function (err) {
+                                                    console.log('error: ' + err);
+                                                }); 
+                                            
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                            }
+
+                            function restore_quatation2(clicked_id){
+                                const url444 = "/housing_quatation/restore?quatation_id=" + clicked_id;
+                                fetch(url444)
+                                    .then(function () {
+
+                                    })
+                                    .then(function () {
+                                        //$("#std_det tbody tr").remove();
+                                        const url = "/bin/housing-quatation-list/getdata";
+                                        fetch(url)
+                                                .then(function (response) {
+                                                    return response.json();
+                                                })
+                                                .then(function (data) {
+                                                    $("#housing tr").remove(); 
+                                                    appendData2(data);
+                                                })
+                                                .catch(function (err) {
+                                                    console.log('error: ' + err);
+                                                }); 
+                                            
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                            }
+                        </script>
+
+                    </div>
+
+                    <br><br><br><br>
+                    <h3>CORPORATE QUOTATIONS</h3>
+
+                    <div class="card table-responsive">
+                        <table class="table table-flush table-nowrap table-light table-striped shadow-light" style="text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">QUATATION ID</th>
+                                    <th scope="col">QUATATION TITLE</th>
+                                    <th scope="col">Client ID</th>
+                                    <!--<th scope="col">Corporate Quatation</th>
+                                    <th scope="col">Housing Quatation</th>-->
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corporate">
+                                <!--<td scope="col">Demo Client ID</td>
+                                <td scope="col">
+                                    <button type="button" class="btn btn-outline-success btn-sm waves-effect waves-light m-1" data-toggle="modal" data-target="#corporate-quatation"> <i class="fa fa-eye"></i> &nbsp;View </button>
+                                    <button type="button" onclick="remove_quatation()" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> &nbsp;Delete </button>
+                                </td>-->
+                            </tbody>
+                        </table>
+
+
+                        <script>
+                            const url555 = "/bin/corporate-quatation-list/getdata";
+                            fetch(url555)
+                                    .then(function (response) {
+                                        return response.json();
+                                    })
+                                    .then(function (data) {
+                                        //$("#std_det tbody tr").remove(); 
+                                        appendData1(data);
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+
+                                    function appendData1(data) {
+                                    var mainContainer = document.getElementById("corporate");
+                                    
+                                    for (var i = 0; i < data.length; i++) {
+                    
+                                       
+                    
+                                        //var id = data[i].project_id;
+                                        
+                    
+                                        var div = document.createElement("tr");
+                                        div.innerHTML = '<tr>' +
+                                                            
+                                                            '<td>' + 
+                                                                data[i].quatation_id + 
+                                                            '</td>' +
+                                                            '<td>' +
+                                                                data[i].quatation_heading +
+                                                                
+                                                            '</td>' +
+                                                            
+                                                            '<td>'+ 
+                                                                data[i].client_id +
+                                                            '</td>' +
+                                                            '<td>'+ 
+                                                                '<button type="button" id="' + data[i].quatation_id + '" onclick="restore_quatation1(this.id)" class="btn btn-outline-success btn-sm waves-effect waves-light m-1"> <i class="fa fa-eye"></i> &nbsp;Restore </button>' +
+                                                                '<button type="button" id="' + data[i].quatation_id + '" onclick="delete_quatation1(this.id)" class="btn btn-outline-danger btn-sm waves-effect waves-light m-1"><i class="fa fa-trash mr-1"></i> &nbsp;Delete </button>' +
+                                                            '</td>' +
+                                                            
+                                                        '</tr>' ;
+                                        mainContainer.appendChild(div);
+
+
+                                    }
+                                }
+                        </script>
+
+                        <script type="text/javascript">
+                            function delete_quatation1(clicked_id){
+                                const url123 = "/corporate_quatation/delete?quatation_id=" + clicked_id;
+                                fetch(url123)
+                                    .then(function () {
+
+                                    })
+                                    .then(function () {
+                                        //$("#std_det tbody tr").remove();
+                                        const url = "/bin/corporate-quatation-list/getdata";
+                                        fetch(url)
+                                                .then(function (response) {
+                                                    return response.json();
+                                                })
+                                                .then(function (data) {
+                                                    $("#corporate tr").remove(); 
+                                                    appendData1(data);
+                                                })
+                                                .catch(function (err) {
+                                                    console.log('error: ' + err);
+                                                }); 
+                                            
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                            }
+
+                            function restore_quatation1(clicked_id){
+                                const url234 = "/corporate_quatation/restore?quatation_id=" + clicked_id;
+                                fetch(url234)
+                                    .then(function () {
+
+                                    })
+                                    .then(function () {
+                                        //$("#std_det tbody tr").remove();
+                                        const url = "/bin/corporate-quatation-list/getdata";
+                                        fetch(url)
+                                                .then(function (response) {
+                                                    return response.json();
+                                                })
+                                                .then(function (data) {
+                                                    $("#corporate tr").remove(); 
+                                                    appendData1(data);
+                                                })
+                                                .catch(function (err) {
+                                                    console.log('error: ' + err);
+                                                }); 
+                                            
+                                    })
+                                    .catch(function (err) {
+                                        console.log('error: ' + err);
+                                    });
+                            }
+                        </script>
+                    </div>
+                   
+                    <!--<div class="col-lg-6 pull-left">
+                        <ul class="pagination pagination-outline-primary">
+                            <li class="page-item disabled"><a class="page-link" href="javascript:void();">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="javascript:void();">Next</a></li>
+                        </ul>
+                    </div>-->
+                </div>
+            </div>
+            <!-- End container-fluid-->
+            <div class="overlay"></div>
+
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="maze.jpeg"
+                             width="150"
+                             alt="mazesoftsolution">
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">We have reached an age where the entire world is reduced to a global village. In this realm of connected living and sharing, we envision a future that will redefine the very purpose of our existence. Today, the solutions are more refined than the demand itself. What we get is better than what we asked for. Businesses, big or small, look for companies that will refine their business needs, more than offering a ready solution. They look for companies that offer competitive web and mobile apps development, e-commerce, and Open-source CMS development to propel their business expansion.</p>
+                    <p class="text-50 small mt-n1 mb-0">Developed by <a href="http://www.mazesoftsolutions.com/">Maze Soft Solution</a></p>
+                </div>
+            </div>
+        </div>
+        <!--End content-wrapper-->
+                
+    
+
+
+    <!--End Back To Top Button-->
+            <!-- // END Header Layout Content -->
+
+            <!-- Footer 
+
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon"
+                             src="./public/images/logo/black-70@2x.jpeg"
+                             width="30"
+                             alt="Luma"> Luma
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">Luma is a beautifully crafted user interface for modern Education Platforms, including Courses & Tutorials, Video Lessons, Student and Teacher Dashboard, Curriculum Management, Earnings and Reporting, ERP, HR, CMS, Tasks, Projects, eCommerce and more.</p>
+                    <p class="mb-8pt d-flex">
+                        <a href=""
+                           class="text-70 text-underline mr-8pt small">Terms</a>
+                        <a href=""
+                           class="text-70 text-underline small">Privacy policy</a>
+                    </p>
+                    <p class="text-50 small mt-n1 mb-0">Copyright 2019 &copy; All rights reserved.</p>
+                </div>
+            </div>-->
+
+            <!-- // END Footer -->
+
+        </div>
+        <!-- // END Header Layout -->
+
+        <!-- Drawer -->
+
+        <div class="mdk-drawer js-mdk-drawer"
+        id="default-drawer">
+       <div class="mdk-drawer__content">
+           <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left"
+                data-perfect-scrollbar>
+
+               <!-- Sidebar Content -->
+
+               <a href="/home"
+                  class="sidebar-brand ">
+                   <!-- <img class="sidebar-brand-icon" src="./public/images/illustration/student/128/white.svg" alt="Luma"> -->
+
+                   <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+
+                       <span class="avatar-title rounded"><img src="logo.jpg"
+                           alt="logo"
+                           class="img-fluid" /></span>
+
+                   </span>
+
+                   <span>Welcome Admin</span>
+               </a>
+
+               
+                   
+               <ul class="sidebar-menu">
+
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/home">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">home</span>
+                           <span class="sidebar-menu-text">Dashboard</span>
+                       </a>
+                   </li>
+                   <ul class="sidebar-menu">
+
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button js-sidebar-collapse"
+                              data-toggle="collapse"
+                              href="#enterprise_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                               Clients
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="enterprise_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/client">
+                                       <span class="sidebar-menu-text">Client</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/add_client">
+                                       <span class="sidebar-menu-text">Add Client</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              data-toggle="collapse"
+                              href="#account_menu">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_library</span>
+                               Quatation
+                               <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                           </a>
+                           <ul class="sidebar-submenu collapse sm-indent"
+                               id="account_menu">
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/quatation">
+                                       <span class="sidebar-menu-text">Quatation</span>
+                                   </a>
+                               </li>
+                               <li class="sidebar-menu-item">
+                                   <a class="sidebar-menu-button"
+                                      href="/add_quatation">
+                                       <span class="sidebar-menu-text">Create Quatation</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </li>
+                       <li class="sidebar-menu-item">
+                           <a class="sidebar-menu-button"
+                              href="/project">
+                               <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">tune</span>
+                               <span class="sidebar-menu-text">Project</span>
+                           </a>
+                       </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#ecommerce_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">shopping_cart</span>
+                           Finance
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="ecommerce_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/finance">
+                                   <span class="sidebar-menu-text">Finance</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_finance">
+                                   <span class="sidebar-menu-text">Add Expenses</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/acc_sum">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">receipt</span>
+                           <span class="sidebar-menu-text">Total Account Summery</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/profit_loss">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">trending_up</span>
+                           <span class="sidebar-menu-text">Profit/Loss</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#messaging_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people_outline</span>
+                           Employee
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="messaging_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/employee">
+                                   <span class="sidebar-menu-text">Employee</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_employee">
+                                   <span class="sidebar-menu-text">Add Employee</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          data-toggle="collapse"
+                          href="#components_menu">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
+                           Users
+                           <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                       </a>
+                       <ul class="sidebar-submenu collapse sm-indent"
+                           id="components_menu">
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/user">
+                                   <span class="sidebar-menu-text">Users</span>
+                               </a>
+                           </li>
+                           <li class="sidebar-menu-item">
+                               <a class="sidebar-menu-button"
+                                  href="/add_user">
+                                   <span class="sidebar-menu-text">Add Users</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/system_history">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">access_time</span>
+                           <span class="sidebar-menu-text">System History</span>
+                       </a>
+                   </li>
+                   <li class="sidebar-menu-item">
+                       <a class="sidebar-menu-button"
+                          href="/bin">
+                           <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">help</span>
+                           <span class="sidebar-menu-text">Recyle Bin</span>
+                       </a>
+                   </li>
+               </ul>
+               
+
+               <!-- // END Sidebar Content -->
+
+           </div>
+       </div>
+   </div>
+
+        <!-- // END Drawer -->
+
+        <!-- jQuery -->
+        <script src="./public/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="./public/vendor/popper.min.js"></script>
+        <script src="./public/vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="./public/vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- DOM Factory -->
+        <script src="./public/vendor/dom-factory.js"></script>
+
+        <!-- MDK -->
+        <script src="./public/vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="./public/js/app.js"></script>
+
+        <!-- Preloader -->
+        <script src="./public/js/preloader.js"></script>
+
+    </body>
+</html>
